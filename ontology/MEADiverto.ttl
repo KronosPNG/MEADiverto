@@ -115,13 +115,6 @@
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q89" .
 
 
-###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Barley
-:Barley rdf:type owl:Class ;
-        rdfs:subClassOf :Malt ;
-        rdfs:comment "Malt created from Barley." ;
-        rdfs:label "Barley" .
-
-
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Beer
 :Beer rdf:type owl:Class ;
       rdfs:subClassOf :FermentedAlcoholicBeverage ,
@@ -329,13 +322,6 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
              rdfs:label "Sugar Source" .
 
 
-###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Wheat
-:Wheat rdf:type owl:Class ;
-       rdfs:subClassOf :Malt ;
-       rdfs:comment "Malt created from Wheat." ;
-       rdfs:label "Wheat" .
-
-
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#WhiteWine
 :WhiteWine rdf:type owl:Class ;
            rdfs:subClassOf :Wine ;
@@ -406,7 +392,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Black_Malt
 :Black_Malt rdf:type owl:NamedIndividual ,
-                     :Barley ;
+                     :Malt ;
             rdfs:comment "A heavily roasted malt used primarily for deep color and roasted character in dark beers. It contributes strong roasted grain notes and is typically used in small amounts." ;
             rdfs:label "Black Malt" .
 
@@ -571,7 +557,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Caramel_Malt
 :Caramel_Malt rdf:type owl:NamedIndividual ,
-                       :Barley ;
+                       :Malt ;
               rdfs:comment "A malt produced by heating moist grain so its internal sugars caramelize before roasting. It is commonly used to add body, sweetness, and color stability." ;
               rdfs:label "Caramel Malt" .
 
@@ -692,7 +678,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Chocolate_Malt
 :Chocolate_Malt rdf:type owl:NamedIndividual ,
-                         :Barley ;
+                         :Malt ;
                 rdfs:comment "A dark roasted malt named for its rich brown color rather than the inclusion of chocolate. It is frequently used in porters and stouts." ;
                 rdfs:label "Chocolate Malt" .
 
@@ -730,7 +716,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Crystal_Malt
 :Crystal_Malt rdf:type owl:NamedIndividual ,
-                       :Barley ;
+                       :Malt ;
               rdfs:comment "A type of caramelized malt in which sugars are converted inside the grain before kilning. It is valued for improving mouthfeel and residual sweetness." ;
               rdfs:label "Crystal Malt" .
 
@@ -1170,7 +1156,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Munich_Malt
 :Munich_Malt rdf:type owl:NamedIndividual ,
-                      :Barley ;
+                      :Malt ;
              rdfs:comment "A traditional European base malt kilned at higher temperatures than pale malt. It is widely used in malt-forward lagers and traditional German styles." ;
              rdfs:label "Munich Malt" .
 
@@ -1209,7 +1195,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pale_Malt
 :Pale_Malt rdf:type owl:NamedIndividual ,
-                    :Barley ;
+                    :Malt ;
            rdfs:comment "A lightly kilned base malt that serves as the primary fermentable foundation for many beer styles. It is one of the most common brewing malts worldwide." ;
            rdfs:label "Pale Malt" .
 
@@ -1266,7 +1252,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pilsner_Malt
 :Pilsner_Malt rdf:type owl:NamedIndividual ,
-                       :Barley ;
+                       :Malt ;
               rdfs:comment "A very lightly kilned malt associated with pale lagers and delicate beer styles. It is commonly used in continental European brewing." ;
               rdfs:label "Pilsner Malt" .
 
@@ -1690,7 +1676,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Vienna_Malt
 :Vienna_Malt rdf:type owl:NamedIndividual ,
-                      :Barley ;
+                      :Malt ;
              rdfs:comment "A moderately kilned malt developed for Vienna-style lagers. It provides a balance between light base malts and darker, richer malts." ;
              rdfs:label "Vienna Malt" .
 
@@ -1730,7 +1716,7 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Wheat_Malt
 :Wheat_Malt rdf:type owl:NamedIndividual ,
-                     :Wheat ;
+                     :Malt ;
             rdfs:comment "Malt made from wheat rather than barley, commonly used to improve foam stability and texture. It is central to many wheat beer traditions." ;
             rdfs:label "Wheat Malt" .
 

@@ -1,0 +1,80 @@
+/* Custom styles for MEADiverto Wiki */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+footer {
+    margin-top: auto;
+    border-top: 1px solid #dee2e6;
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.card-title a {
+    color: #0d6efd;
+}
+
+.card-title a:hover {
+    text-decoration: underline !important;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #212529;
+    font-weight: 600;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.breadcrumb {
+    background-color: transparent;
+}
+
+code {
+    background-color: #f1f3f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.list-group-item {
+    border-left: 3px solid #0d6efd;
+    padding-left: 1rem;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+dl.row {
+    margin-bottom: 0;
+}
+
+dt {
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+dd {
+    margin-bottom: 0.5rem;
+}

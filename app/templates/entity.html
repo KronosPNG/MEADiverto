@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}{{ entity.label }} - MEADiverto Wiki{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('main.home') }}">Home</a></li>
+                {% for item in breadcrumb %}
+                    {% if item.label not in ['Resource', 'Fermented Alcoholic Beverage', 'owl:Thing'] %}
+                        <li class="breadcrumb-item"><a href="{{ url_for('entity.entity', name=item.label) }}">{{ item.label }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                <li class="breadcrumb-item active">{{ entity.label }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>{{ entity.label }}</h1>
+        {% if entity.type %}
+            <p class="text-muted">
+                <span class="badge bg-secondary">{{ entity.type.split('#')[-1] if '#' in entity.type else entity.type.split('/')[-1] }}</span>
+            </p>
+        {% endif %}
+    </div>
+</div>
+
+{% if entity.comment %}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Description</h5>
+                <p class="card-text">{{ entity.comment }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if entity.data_properties %}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Properties</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    {% for prop_name, prop_values in entity.data_properties.items() %}
+                        <dt class="col-sm-3"><strong>{{ prop_name }}</strong></dt>
+                        <dd class="col-sm-9">
+                            {% if prop_values|length == 1 %}
+                                {{ prop_values[0] }}
+                            {% else %}
+                                <ul class="mb-0">
+                                    {% for val in prop_values %}
+                                        <li>{{ val }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </dd>
+                    {% endfor %}
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if entity.object_properties %}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Related Entities</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    {% for prop_name, prop_values in entity.object_properties.items() %}
+                        <dt class="col-sm-3"><strong>{{ prop_name }}</strong></dt>
+                        <dd class="col-sm-9">
+                            {# Check if prop_values is a dict (grouped) or list (flat) #}
+                            {% if prop_values is mapping %}
+                                {# Grouped by type #}
+                                {% for group_name, group_items in prop_values.items() %}
+                                    <div class="mb-3">
+                                        <strong class="text-muted">{{ group_name }}:</strong>
+                                        <ul class="mb-0">
+                                            {% for val in group_items %}
+                                                <li>
+                                                    <a href="{{ url_for('entity.entity', name=val.label) }}" class="text-decoration-none">
+                                                        {{ val.label }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                {# Flat list (fallback) #}
+                                {% if prop_values|length == 1 %}
+                                    <a href="{{ url_for('entity.entity', name=prop_values[0].label) }}" class="text-decoration-none">
+                                        {{ prop_values[0].label }}
+                                    </a>
+                                {% else %}
+                                    <ul class="mb-0">
+                                        {% for val in prop_values %}
+                                            <li>
+                                                <a href="{{ url_for('entity.entity', name=val.label) }}" class="text-decoration-none">
+                                                    {{ val.label }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% endif %}
+                        </dd>
+                    {% endfor %}
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if entity.parent_classes or entity.child_classes %}
+<div class="row mt-4">
+    <div class="col-md-6">
+        {% if entity.parent_classes %}
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Parent Classes</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    {% for parent in entity.parent_classes %}
+                        <li class="list-group-item">
+                            <a href="{{ url_for('entity.entity', name=parent.label) }}" class="text-decoration-none">
+                                {{ parent.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-md-6">
+        {% if entity.child_classes %}
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Subclasses</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    {% for child in entity.child_classes %}
+                        <li class="list-group-item">
+                            <a href="{{ url_for('entity.entity', name=child.label) }}" class="text-decoration-none">
+                                {{ child.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <p class="text-muted small">
+            <strong>Entity URI:</strong> <code>{{ entity.uri }}</code>
+        </p>
+    </div>
+</div>
+{% endblock %}

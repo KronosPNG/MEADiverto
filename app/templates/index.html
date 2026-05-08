@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Home - MEADiverto Wiki{% endblock %}
+
+{% block content %}
+<div class="row mb-5">
+    <div class="col-md-8 mx-auto">
+        <h1 class="mb-4">MEADiverto Semantic Wiki</h1>
+        <p class="lead">Explore the world of fermented beverages through semantic knowledge.</p>
+        
+        <form method="GET" action="{{ url_for('main.search') }}" class="mb-4">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" name="q" placeholder="Search beverages...">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">Browse All Entities</h2>
+        {% if entities %}
+            <div class="row">
+                {% for entity in entities %}
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ url_for('entity.entity', name=entity.label) }}" class="text-decoration-none">
+                                        {{ entity.label }}
+                                    </a>
+                                </h5>
+                                <p class="card-text text-muted small">
+                                    {{ entity.uri.split('#')[-1] if '#' in entity.uri else entity.uri.split('/')[-1] }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="alert alert-info">No entities found in the ontology.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

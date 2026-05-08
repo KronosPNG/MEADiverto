@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results - MEADiverto Wiki{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8 mx-auto">
+        <h1>Search Results</h1>
+        <form method="GET" action="{{ url_for('main.search') }}" class="mb-4">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" name="q" placeholder="Search beverages..." value="{{ query }}">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% if query %}
+            {% if results %}
+                <p class="mb-4">Found <strong>{{ results|length }}</strong> result(s) for "<strong>{{ query }}</strong>"</p>
+                <div class="row">
+                    {% for result in results %}
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ url_for('entity.entity', name=result.label) }}" class="text-decoration-none">
+                                            {{ result.label }}
+                                        </a>
+                                    </h5>
+                                    {% if result.comment %}
+                                        <p class="card-text">{{ result.comment[:150] }}{% if result.comment|length > 150 %}...{% endif %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-info" role="alert">
+                    <h4 class="alert-heading">No results found</h4>
+                    <p>No entities matched your search for "<strong>{{ query }}</strong>". Try different keywords.</p>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="alert alert-info" role="alert">
+                <p>Enter a search term to find entities.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
