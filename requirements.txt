@@ -1,0 +1,5 @@
+flask
+SPARQLWrapper
+requests
+rdflib
+python-dotenv
