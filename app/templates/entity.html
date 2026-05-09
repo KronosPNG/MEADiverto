@@ -129,7 +129,7 @@
 </div>
 {% endif %}
 
-{% if entity.parent_classes or entity.child_classes %}
+{% if entity.parent_classes or entity.child_classes or entity.individuals %}
 <div class="row mt-4">
     <div class="col-md-6">
         {% if entity.parent_classes %}
@@ -172,6 +172,29 @@
         {% endif %}
     </div>
 </div>
+
+{% if entity.individuals %}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Instances ({{ entity.individuals|length }})</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    {% for individual in entity.individuals %}
+                        <li class="list-group-item">
+                            <a href="{{ url_for('entity.entity', name=individual.label) }}" class="text-decoration-none">
+                                {{ individual.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endif %}
 
 <div class="row mt-4">

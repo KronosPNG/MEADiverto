@@ -9,8 +9,8 @@ bp = Blueprint("main", __name__)
 def home():
     """Home page with entity listing"""
     graphdb = get_graphdb_service()
-    entities = graphdb.get_all_entities()
-    return render_template("index.html", entities=entities)
+    hierarchy = graphdb.get_hierarchical_entities()
+    return render_template("index.html", hierarchy=hierarchy)
 
 @bp.route("/search")
 def search():

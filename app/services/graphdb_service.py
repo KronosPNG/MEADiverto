@@ -100,7 +100,8 @@ class GraphDBService:
             "data_properties": {},
             "object_properties": {},
             "parent_classes": [],
-            "child_classes": []
+            "child_classes": [],
+            "individuals": []
         }
         
         if info_results["results"]["bindings"]:
@@ -240,6 +241,28 @@ class GraphDBService:
                 entity_data["child_classes"].append({
                     "uri": child_uri,
                     "label": child_label
+                })
+        
+        # Get individuals (instances) of this class
+        individuals_query = f"""
+        SELECT ?individual ?individualLabel
+        WHERE {{
+            ?individual rdf:type <{entity_uri}> .
+            OPTIONAL {{ ?individual rdfs:label ?individualLabel . }}
+            FILTER NOT EXISTS {{ ?individual rdfs:subClassOf ?parent . }}
+        }}
+        ORDER BY ?individualLabel
+        """
+        
+        individuals_results = self.run_query(individuals_query)
+        
+        for binding in individuals_results["results"]["bindings"]:
+            individual_uri = binding.get("individual", {}).get("value")
+            individual_label = binding.get("individualLabel", {}).get("value") or individual_uri.split("#")[-1]
+            if individual_label and not individual_label.startswith("node"):
+                entity_data["individuals"].append({
+                    "uri": individual_uri,
+                    "label": individual_label
                 })
         
         return entity_data
@@ -404,3 +427,166 @@ class GraphDBService:
             })
         
         return entities
+    
+    def get_hierarchical_entities(self):
+        """
+        Get entities organized hierarchically.
+        Gets main category roots and builds trees under each one.
+        Filters out entities that appear as both direct children and descendants.
+        
+        Returns:
+            list: Root level entities with nested children
+        """
+        def get_all_descendants(uri):
+            """Get all descendants of a URI recursively"""
+            descendants = set()
+            
+            def traverse(current_uri, visited=None):
+                if visited is None:
+                    visited = set()
+                if current_uri in visited:
+                    return
+                visited.add(current_uri)
+                
+                subclass_query = f"""
+                SELECT ?child
+                WHERE {{
+                    ?child rdfs:subClassOf <{current_uri}> .
+                    FILTER(?child != <{current_uri}>)
+                }}
+                """
+                
+                results = self.run_query(subclass_query)
+                for binding in results["results"]["bindings"]:
+                    child_uri = binding.get("child", {}).get("value")
+                    if child_uri:
+                        descendants.add(child_uri)
+                        traverse(child_uri, visited)
+            
+            traverse(uri)
+            return descendants
+        
+        def build_tree(uri, visited=None, depth=0):
+            if visited is None:
+                visited = set()
+            if uri in visited or depth > 5:
+                return None
+            visited.add(uri)
+            
+            # Get label
+            label_query = f"""
+            SELECT ?label
+            WHERE {{
+                <{uri}> rdfs:label ?label .
+            }}
+            LIMIT 1
+            """
+            label_results = self.run_query(label_query)
+            label = None
+            if label_results["results"]["bindings"]:
+                label = label_results["results"]["bindings"][0].get("label", {}).get("value")
+            
+            if not label:
+                return None
+            
+            node = {
+                "uri": uri,
+                "label": label,
+                "children": []
+            }
+            
+            # Get direct subclasses
+            subclass_query = f"""
+            SELECT ?child ?childLabel
+            WHERE {{
+                ?child rdfs:subClassOf <{uri}> .
+                ?child rdfs:label ?childLabel .
+                FILTER(?child != <{uri}>)
+            }}
+            ORDER BY ?childLabel
+            """
+            
+            subclass_results = self.run_query(subclass_query)
+            direct_children = []
+            for binding in subclass_results["results"]["bindings"]:
+                child_uri = binding.get("child", {}).get("value")
+                child_label = binding.get("childLabel", {}).get("value")
+                if child_label and not child_label.startswith("node") and child_label != "Resource":
+                    direct_children.append((child_uri, child_label))
+            
+            # Build set of all descendants through children
+            descendants_through_children = set()
+            for child_uri, _ in direct_children:
+                descendants_through_children.update(get_all_descendants(child_uri))
+            
+            # Only add direct children that are NOT descendants through other paths
+            for child_uri, child_label in direct_children:
+                # Skip if this child is a descendant through another child
+                if child_uri in descendants_through_children:
+                    continue
+                    
+                child_node = build_tree(child_uri, visited.copy(), depth + 1)
+                if child_node:
+                    node["children"].append(child_node)
+            
+            return node
+        
+        # First get known root categories by finding entities with many children
+        root_query = """
+        SELECT ?class ?label (COUNT(?child) as ?childCount)
+        WHERE {
+            ?class rdfs:label ?label .
+            OPTIONAL { ?child rdfs:subClassOf ?class . }
+            FILTER(?label NOT IN ("Resource", "NamedIndividual", "Class", "Ingredient", "Thing"))
+            FILTER NOT EXISTS { ?class rdf:type rdf:Property }
+        }
+        GROUP BY ?class ?label
+        HAVING (COUNT(?child) >= 2)
+        ORDER BY DESC(COUNT(?child))
+        LIMIT 15
+        """
+        
+        root_results = self.run_query(root_query)
+        hierarchy = []
+        seen_uris = set()
+        
+        for binding in root_results["results"]["bindings"]:
+            class_uri = binding.get("class", {}).get("value")
+            if class_uri and class_uri not in seen_uris:
+                node = build_tree(class_uri)
+                if node and node.get("children"):  # Only add if has children
+                    hierarchy.append(node)
+                    seen_uris.add(class_uri)
+        
+        return hierarchy
+    
+    def get_individuals_for_class(self, class_uri):
+        """
+        Get all individuals (instances) of a given class
+        
+        Args:
+            class_uri: Full URI of the class
+            
+        Returns:
+            list: List of individuals with label and uri
+        """
+        query = f"""
+        SELECT ?individual ?label
+        WHERE {{
+            ?individual rdf:type <{class_uri}> .
+            ?individual rdfs:label ?label .
+            FILTER NOT EXISTS {{ ?individual rdfs:subClassOf ?parent . }}
+        }}
+        ORDER BY ?label
+        """
+        
+        results = self.run_query(query)
+        individuals = []
+        
+        for binding in results["results"]["bindings"]:
+            individuals.append({
+                "uri": binding.get("individual", {}).get("value"),
+                "label": binding.get("label", {}).get("value")
+            })
+        
+        return individuals

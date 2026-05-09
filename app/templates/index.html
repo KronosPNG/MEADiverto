@@ -2,6 +2,53 @@
 
 {% block title %}Home - MEADiverto Wiki{% endblock %}
 
+{% block extra_css %}
+<style>
+    .entity-tree {
+        list-style: none;
+        padding-left: 0;
+    }
+    .tree-node {
+        margin-left: 20px;
+    }
+    .tree-toggle {
+        cursor: pointer;
+        user-select: none;
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+    }
+    .tree-toggle::before {
+        content: "▶";
+        transition: transform 0.2s;
+    }
+    .tree-toggle.expanded::before {
+        transform: rotate(90deg);
+    }
+    .tree-children {
+        display: none;
+        list-style: none;
+        padding-left: 0;
+    }
+    .tree-children.show {
+        display: block;
+    }
+    .tree-item {
+        padding: 8px 0;
+    }
+    .tree-children .tree-item {
+        margin-left: 30px;
+    }
+    .tree-label {
+        text-decoration: none;
+        color: #0d6efd;
+    }
+    .tree-label:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="row mb-5">
     <div class="col-md-8 mx-auto">
@@ -18,30 +65,33 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 mx-auto">
         <h2 class="mb-4">Browse All Entities</h2>
-        {% if entities %}
-            <div class="row">
-                {% for entity in entities %}
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="{{ url_for('entity.entity', name=entity.label) }}" class="text-decoration-none">
-                                        {{ entity.label }}
-                                    </a>
-                                </h5>
-                                <p class="card-text text-muted small">
-                                    {{ entity.uri.split('#')[-1] if '#' in entity.uri else entity.uri.split('/')[-1] }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+        {% if hierarchy %}
+            <ul class="entity-tree">
+                {% for item in hierarchy %}
+                    {% include 'tree_node.html' %}
                 {% endfor %}
-            </div>
+            </ul>
         {% else %}
             <p class="alert alert-info">No entities found in the ontology.</p>
         {% endif %}
     </div>
 </div>
+
+<script>
+document.querySelectorAll('.tree-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Navigate from toggle -> span -> a -> ul
+        // Or more directly: find the tree-children ul within the parent li
+        const listItem = this.closest('.tree-item');
+        const children = listItem ? listItem.querySelector('.tree-children') : null;
+        if (children) {
+            children.classList.toggle('show');
+            this.classList.toggle('expanded');
+        }
+    });
+});
+</script>
 {% endblock %}
