@@ -265,6 +265,22 @@ class GraphDBService:
                     "label": individual_label
                 })
         
+        # Get external links (rdfs:seeAlso)
+        seeAlso_query = f"""
+        SELECT ?link
+        WHERE {{
+            <{entity_uri}> rdfs:seeAlso ?link .
+        }}
+        """
+        
+        seeAlso_results = self.run_query(seeAlso_query)
+        entity_data["external_links"] = []
+        
+        for binding in seeAlso_results["results"]["bindings"]:
+            link = binding.get("link", {}).get("value")
+            if link:
+                entity_data["external_links"].append(link)
+        
         return entity_data
     
     def get_breadcrumb_hierarchy(self, entity_uri):

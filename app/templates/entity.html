@@ -43,6 +43,63 @@
 </div>
 {% endif %}
 
+{% if wikidata or wikipedia %}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Enriched Information</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% if display_image %}
+                    <div class="col-md-3 text-center mb-3">
+                        <img src="{{ display_image }}" alt="{{ entity.label }}" class="img-fluid rounded" style="max-height: 300px; object-fit: cover;">
+                        <small class="text-muted d-block mt-2">
+                            {% if wikidata and wikidata.image_url == display_image %}
+                                Image from Wikidata
+                            {% elif wikipedia and wikipedia.image_url == display_image %}
+                                Image from Wikipedia
+                            {% endif %}
+                        </small>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="col-md-{% if display_image %}9{% else %}12{% endif %}">
+                        {% if wikipedia and wikipedia.extract %}
+                        <div class="mb-3">
+                            <h6 class="text-muted">Wikipedia Summary</h6>
+                            <p class="card-text">{{ wikipedia.extract }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        {% if wikidata and wikidata.description %}
+                        <div class="mb-3">
+                            <h6 class="text-muted">Wikidata Description</h6>
+                            <p class="card-text">{{ wikidata.description }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="mb-0">
+                            {% if wikipedia and wikipedia.url %}
+                            <a href="{{ wikipedia.url }}" target="_blank" class="btn btn-sm btn-outline-secondary">
+                                View on Wikipedia
+                            </a>
+                            {% endif %}
+                            {% if wikidata and wikidata.wikidata_url %}
+                            <a href="{{ wikidata.wikidata_url }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                View on Wikidata ({{ wikidata.qid }})
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
 {% if entity.data_properties %}
 <div class="row mt-4">
     <div class="col-md-12">
