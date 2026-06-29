@@ -19,6 +19,22 @@ class GraphDBService:
         self.sparql = SPARQLWrapper(endpoint_url)
         self.sparql.setReturnFormat(JSON)
     
+    def _is_valid_iri(self, uri):
+        """
+        Check if a URI is a valid absolute IRI (not a blank node)
+        
+        Args:
+            uri: URI string to validate
+            
+        Returns:
+            bool: True if valid IRI, False if blank node
+        """
+        if not uri:
+            return False
+        # Valid IRIs must start with a scheme (http://, https://, etc.)
+        # Blank nodes don't have schemes and are invalid for SPARQL queries
+        return uri.startswith(('http://', 'https://', 'urn:', 'file:'))
+    
     def run_query(self, query):
         """
         Execute a SPARQL query
@@ -460,7 +476,7 @@ class GraphDBService:
             def traverse(current_uri, visited=None):
                 if visited is None:
                     visited = set()
-                if current_uri in visited:
+                if current_uri in visited or not self._is_valid_iri(current_uri):
                     return
                 visited.add(current_uri)
                 
@@ -475,7 +491,7 @@ class GraphDBService:
                 results = self.run_query(subclass_query)
                 for binding in results["results"]["bindings"]:
                     child_uri = binding.get("child", {}).get("value")
-                    if child_uri:
+                    if child_uri and self._is_valid_iri(child_uri):
                         descendants.add(child_uri)
                         traverse(child_uri, visited)
             
@@ -485,7 +501,7 @@ class GraphDBService:
         def build_tree(uri, visited=None, depth=0):
             if visited is None:
                 visited = set()
-            if uri in visited or depth > 5:
+            if uri in visited or depth > 5 or not self._is_valid_iri(uri):
                 return None
             visited.add(uri)
             
@@ -568,7 +584,7 @@ class GraphDBService:
         
         for binding in root_results["results"]["bindings"]:
             class_uri = binding.get("class", {}).get("value")
-            if class_uri and class_uri not in seen_uris:
+            if class_uri and class_uri not in seen_uris and self._is_valid_iri(class_uri):
                 node = build_tree(class_uri)
                 if node and node.get("children"):  # Only add if has children
                     hierarchy.append(node)

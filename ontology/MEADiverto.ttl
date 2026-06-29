@@ -1,4 +1,4 @@
-@prefix : <http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#> .
+@prefix mead: <http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -13,60 +13,60 @@
 #################################################################
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#cultivates
-:cultivates rdf:type owl:ObjectProperty ;
-            owl:inverseOf :isFarmedIn ;
+mead:cultivates rdf:type owl:ObjectProperty ;
+            owl:inverseOf mead:isFarmedIn ;
             rdf:type owl:AsymmetricProperty ;
-            rdfs:domain :Country ;
-            rdfs:range :Fruit .
+            rdfs:domain mead:Country ;
+            rdfs:range mead:Fruit .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#hasBeverage
-:hasBeverage rdf:type owl:ObjectProperty ;
+mead:hasBeverage rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
-             owl:inverseOf :originatesFrom ;
+             owl:inverseOf mead:originatesFrom ;
              rdf:type owl:AsymmetricProperty ;
-             rdfs:domain :Country ;
-             rdfs:range :FermentedAlcoholicBeverage .
+             rdfs:domain mead:Country ;
+             rdfs:range mead:FermentedAlcoholicBeverage .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#hasIngredient
-:hasIngredient rdf:type owl:ObjectProperty ;
+mead:hasIngredient rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
-               owl:inverseOf :isUsedIn ;
+               owl:inverseOf mead:isUsedIn ;
                rdf:type owl:AsymmetricProperty ;
-               rdfs:domain :FermentedAlcoholicBeverage ;
-               rdfs:range :Ingredient .
+               rdfs:domain mead:FermentedAlcoholicBeverage ;
+               rdfs:range mead:Ingredient .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#isFarmedIn
-:isFarmedIn rdf:type owl:ObjectProperty ,
+mead:isFarmedIn rdf:type owl:ObjectProperty ,
                      owl:AsymmetricProperty ;
-            rdfs:domain :Grape ;
-            rdfs:range :Country .
+            rdfs:domain mead:Grape ;
+            rdfs:range mead:Country .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#isSimilarTo
-:isSimilarTo rdf:type owl:ObjectProperty ;
+mead:isSimilarTo rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              rdf:type owl:SymmetricProperty ,
                       owl:IrreflexiveProperty ;
-             rdfs:domain :FermentedAlcoholicBeverage ;
-             rdfs:range :FermentedAlcoholicBeverage .
+             rdfs:domain mead:FermentedAlcoholicBeverage ;
+             rdfs:range mead:FermentedAlcoholicBeverage .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#isUsedIn
-:isUsedIn rdf:type owl:ObjectProperty ,
+mead:isUsedIn rdf:type owl:ObjectProperty ,
                    owl:AsymmetricProperty ;
-          rdfs:domain :Ingredient ;
-          rdfs:range :FermentedAlcoholicBeverage .
+          rdfs:domain mead:Ingredient ;
+          rdfs:range mead:FermentedAlcoholicBeverage .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#originatesFrom
-:originatesFrom rdf:type owl:ObjectProperty ;
+mead:originatesFrom rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
                 rdf:type owl:AsymmetricProperty ;
-                rdfs:domain :FermentedAlcoholicBeverage ;
-                rdfs:range :Country .
+                rdfs:domain mead:FermentedAlcoholicBeverage ;
+                rdfs:range mead:Country .
 
 
 #################################################################
@@ -74,22 +74,22 @@
 #################################################################
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#colour
-:colour rdf:type owl:DatatypeProperty ;
+mead:colour rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#flavour
-:flavour rdf:type owl:DatatypeProperty ;
+mead:flavour rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#maxABV
-:maxABV rdf:type owl:DatatypeProperty ;
+mead:maxABV rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#minABV
-:minABV rdf:type owl:DatatypeProperty ;
+mead:minABV rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty .
 
 
@@ -98,30 +98,30 @@
 #################################################################
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Ale
-:Ale rdf:type owl:Class ;
-     rdfs:subClassOf :Beer ;
-     owl:disjointWith :Lager ;
+mead:Ale rdf:type owl:Class ;
+     rdfs:subClassOf mead:Beer ;
+     owl:disjointWith mead:Lager ;
      rdfs:comment "Ales are beers fermented with top-fermenting yeast at warmer temperatures. They often develop more complex fermentation character and are commonly associated with fuller body and a wide range of historical and modern styles." ;
      rdfs:label "Ale" ;
      rdfs:seeAlso "https://www.wikidata.org/wiki/Q208385" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Apple
-:Apple rdf:type owl:Class ;
-       rdfs:subClassOf :Fruit ;
-       owl:disjointWith :Grape ;
+mead:Apple rdf:type owl:Class ;
+       rdfs:subClassOf mead:Fruit ;
+       owl:disjointWith mead:Grape ;
        rdfs:comment "A widely cultivated fruit commonly used in fermented beverages such as cider, cyser, fruit wines, and flavored ales." ;
        rdfs:label "Apple" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q89" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Beer
-:Beer rdf:type owl:Class ;
-      rdfs:subClassOf :FermentedAlcoholicBeverage ,
+mead:Beer rdf:type owl:Class ;
+      rdfs:subClassOf mead:FermentedAlcoholicBeverage ,
                       [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasIngredient ;
+                        owl:onProperty mead:hasIngredient ;
                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Malt
+                        owl:onClass mead:Malt
                       ] ;
       rdfs:comment """Beer is an alcoholic beverage made by fermenting cereal grains, usually malted barley, with yeast. It may be flavored with hops, herbs, spices, or other ingredients, and is one of the world’s oldest and most widely produced drinks.
 Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
@@ -130,20 +130,20 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Botanical
-:Botanical rdf:type owl:Class ;
-           rdfs:subClassOf :Ingredient ;
-           owl:disjointWith :SugarSource ;
+mead:Botanical rdf:type owl:Class ;
+           rdfs:subClassOf mead:Ingredient ;
+           owl:disjointWith mead:SugarSource ;
            rdfs:comment "Herbs, spices and other plants used in beverages to add flavour, enhance mouthfeel and/or improve them." ;
            rdfs:label "Botanical" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cider
-:Cider rdf:type owl:Class ;
-       rdfs:subClassOf :FermentedAlcoholicBeverage ,
+mead:Cider rdf:type owl:Class ;
+       rdfs:subClassOf mead:FermentedAlcoholicBeverage ,
                        [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasIngredient ;
+                         owl:onProperty mead:hasIngredient ;
                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass :Apple
+                         owl:onClass mead:Apple
                        ] ;
        rdfs:comment "Cider is an alcoholic beverage made by fermenting apple juice, though pears and other fruits may also be used in related traditions. It has strong connections to rural agriculture and regional fruit-growing cultures." ;
        rdfs:label "Cider" ;
@@ -151,37 +151,37 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Country
-:Country rdf:type owl:Class ;
+mead:Country rdf:type owl:Class ;
          rdfs:label "Country" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#DessertWine
-:DessertWine rdf:type owl:Class ;
-             rdfs:subClassOf :Wine ;
+mead:DessertWine rdf:type owl:Class ;
+             rdfs:subClassOf mead:Wine ;
              rdfs:comment "Dessert wines are wines typically enjoyed with or after a meal. They are often associated with higher residual sugar, fortification, or special aging methods." ;
              rdfs:label "Dessert Wine" ;
              rdfs:seeAlso "https://www.wikidata.org/wiki/Q1200945" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#FermentedAlcoholicBeverage
-:FermentedAlcoholicBeverage rdf:type owl:Class ;
+mead:FermentedAlcoholicBeverage rdf:type owl:Class ;
                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                              owl:onProperty :colour ;
+                                              owl:onProperty mead:colour ;
                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                               owl:onDataRange owl:rational
                                             ] ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty :flavour ;
+                                              owl:onProperty mead:flavour ;
                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                               owl:onDataRange owl:rational
                                             ] ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty :maxABV ;
+                                              owl:onProperty mead:maxABV ;
                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                               owl:onDataRange owl:rational
                                             ] ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty :minABV ;
+                                              owl:onProperty mead:minABV ;
                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                               owl:onDataRange owl:rational
                                             ] ;
@@ -190,66 +190,66 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Fruit
-:Fruit rdf:type owl:Class ;
-       rdfs:subClassOf :SugarSource ;
-       owl:disjointWith :Malt ;
+mead:Fruit rdf:type owl:Class ;
+       rdfs:subClassOf mead:SugarSource ;
+       owl:disjointWith mead:Malt ;
        rdfs:comment "The mature, seed-bearing structure of a flowering plant that develops from the ovary after fertilization, serving primarily to protect and disperse seeds. Used in fermented beverages to produce alcohol from their sugar content." ;
        rdfs:label "Fruit" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q3314483" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Grape
-:Grape rdf:type owl:Class ;
-       rdfs:subClassOf :Fruit ;
+mead:Grape rdf:type owl:Class ;
+       rdfs:subClassOf mead:Fruit ;
        rdfs:comment "One of the oldest cultivated fruits for fermentation, primarily used in winemaking but also in hybrid beverages such as pyment." ;
        rdfs:label "Grape" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q10978" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Honey
-:Honey rdf:type owl:Class ;
-       rdfs:subClassOf :SugarSource ;
+mead:Honey rdf:type owl:Class ;
+       rdfs:subClassOf mead:SugarSource ;
        rdfs:label "Honey" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q10987" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Hop
-:Hop rdf:type owl:Class ;
-     rdfs:subClassOf :Botanical ;
+mead:Hop rdf:type owl:Class ;
+     rdfs:subClassOf mead:Botanical ;
      rdfs:comment "Female flower cones (strobiles) of the Humulus lupulus plant, used primarily in brewing for their bitter acids and aromatic oils. The plant is dioecious, with only the female cones being cultivated for commercial use, especially in beer production for flavor, aroma, and preservation." ;
      rdfs:label "Hop" ;
      rdfs:seeAlso "https://www.wikidata.org/wiki/Q104212" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Ingredient
-:Ingredient rdf:type owl:Class ;
+mead:Ingredient rdf:type owl:Class ;
             rdfs:comment "Ingredient class for Fermented Beverages" ;
             rdfs:label "Ingredient" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Lager
-:Lager rdf:type owl:Class ;
-       rdfs:subClassOf :Beer ;
+mead:Lager rdf:type owl:Class ;
+       rdfs:subClassOf mead:Beer ;
        rdfs:comment "Lagers are beers fermented with bottom-fermenting yeast at cooler temperatures. They are usually conditioned for longer periods, producing a cleaner and more refined fermentation profile." ;
        rdfs:label "Lager" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q253481" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Malt
-:Malt rdf:type owl:Class ;
-      rdfs:subClassOf :SugarSource ;
+mead:Malt rdf:type owl:Class ;
+      rdfs:subClassOf mead:SugarSource ;
       rdfs:comment "Malt is grain—typically barley—that has been soaked, allowed to germinate, and then dried to develop enzymes that convert starches into fermentable sugars. It is primarily used in brewing beer and distilling whisky, and also found in malt vinegar, breakfast cereals, and flavored drinks." ;
       rdfs:label "Malt" ;
       rdfs:seeAlso "https://www.wikidata.org/wiki/Q152024" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Mead
-:Mead rdf:type owl:Class ;
-      rdfs:subClassOf :FermentedAlcoholicBeverage ,
+mead:Mead rdf:type owl:Class ;
+      rdfs:subClassOf mead:FermentedAlcoholicBeverage ,
                       [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasIngredient ;
+                        owl:onProperty mead:hasIngredient ;
                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Honey
+                        owl:onClass mead:Honey
                       ] ;
       rdfs:comment "Mead is an alcoholic beverage made by fermenting honey with water, sometimes with fruit (Melomels), spices, or grains added (Braggots) It is one of the oldest known fermented drinks and appears in many mythological and historical traditions." ;
       rdfs:label "Mead" ;
@@ -257,43 +257,43 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Melomel
-:Melomel rdf:type owl:Class ;
-         rdfs:subClassOf :Mead ;
-         owl:disjointWith :Metheglin ;
+mead:Melomel rdf:type owl:Class ;
+         rdfs:subClassOf mead:Mead ;
+         owl:disjointWith mead:Metheglin ;
          rdfs:comment "Melomel is mead made with fruit added during fermentation or conditioning. The fruit contributes structure and regional variation to the honey base." ;
          rdfs:label "Melomel" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q16475090" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Metheglin
-:Metheglin rdf:type owl:Class ;
-           rdfs:subClassOf :Mead ;
+mead:Metheglin rdf:type owl:Class ;
+           rdfs:subClassOf mead:Mead ;
            rdfs:comment "Metheglin is mead flavored with herbs, spices, or botanicals. The category reflects older medicinal and culinary traditions." ;
            rdfs:label "Metheglin" ;
            rdfs:seeAlso "https://www.wikidata.org/wiki/Q20599140" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#RedWine
-:RedWine rdf:type owl:Class ;
-         rdfs:subClassOf :Wine ;
+mead:RedWine rdf:type owl:Class ;
+         rdfs:subClassOf mead:Wine ;
          rdfs:comment "Red wines are made from dark-skinned grapes, with fermentation often involving contact with grape skins. They range widely in structure, aging potential, and regional expression." ;
          rdfs:label "Red Wine" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q1827" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Rice
-:Rice rdf:type owl:Class ;
-      rdfs:subClassOf :SugarSource ;
+mead:Rice rdf:type owl:Class ;
+      rdfs:subClassOf mead:SugarSource ;
       rdfs:label "Rice" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Sake
-:Sake rdf:type owl:Class ;
-      rdfs:subClassOf :FermentedAlcoholicBeverage ,
+mead:Sake rdf:type owl:Class ;
+      rdfs:subClassOf mead:FermentedAlcoholicBeverage ,
                       [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasIngredient ;
+                        owl:onProperty mead:hasIngredient ;
                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Rice
+                        owl:onClass mead:Rice
                       ] ;
       rdfs:comment "Sake is a Japanese fermented beverage made primarily from polished rice, water, yeast, and koji mold. It occupies a unique place between beer and wine in production method and cultural role." ;
       rdfs:label "Sake" ;
@@ -301,42 +301,42 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#SparklingWine
-:SparklingWine rdf:type owl:Class ;
-               rdfs:subClassOf :Wine ;
+mead:SparklingWine rdf:type owl:Class ;
+               rdfs:subClassOf mead:Wine ;
                rdfs:comment "Sparkling wines contain carbon dioxide, usually created by a second fermentation. They are often associated with celebrations and formal toasts." ;
                rdfs:label "Sparkling Wine" ;
                rdfs:seeAlso "https://www.wikidata.org/wiki/Q321263" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#SpicedWine
-:SpicedWine rdf:type owl:Class ;
-            rdfs:subClassOf :Wine ;
+mead:SpicedWine rdf:type owl:Class ;
+            rdfs:subClassOf mead:Wine ;
             rdfs:comment "Spiced wines are wines flavored with spices, fruit, herbs, or warming additives. They are often seasonal, festive, or strongly tied to local custom." ;
             rdfs:label "Spiced Wine" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#SugarSource
-:SugarSource rdf:type owl:Class ;
-             rdfs:subClassOf :Ingredient ;
+mead:SugarSource rdf:type owl:Class ;
+             rdfs:subClassOf mead:Ingredient ;
              rdfs:comment "Sources of sugar for fermentation of various fermented beverages, sometimes used as ingredients post-fermentation for flavour." ;
              rdfs:label "Sugar Source" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#WhiteWine
-:WhiteWine rdf:type owl:Class ;
-           rdfs:subClassOf :Wine ;
+mead:WhiteWine rdf:type owl:Class ;
+           rdfs:subClassOf mead:Wine ;
            rdfs:comment "White wines are made from white grapes or from grapes fermented without skin contact. They are a broad category covering many styles, from dry to sweet." ;
            rdfs:label "White Wine" ;
            rdfs:seeAlso "https://www.wikidata.org/wiki/Q10210" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Wine
-:Wine rdf:type owl:Class ;
-      rdfs:subClassOf :FermentedAlcoholicBeverage ,
+mead:Wine rdf:type owl:Class ;
+      rdfs:subClassOf mead:FermentedAlcoholicBeverage ,
                       [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasIngredient ;
+                        owl:onProperty mead:hasIngredient ;
                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Grape
+                        owl:onClass mead:Grape
                       ] ;
       rdfs:comment "Wine is an alcoholic beverage made by fermenting grape juice, though the term can also be used more broadly for other fruit-based fermentations. It has deep cultural, agricultural, and ceremonial significance across many regions." ;
       rdfs:label "Wine" ;
@@ -348,750 +348,750 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 #################################################################
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Aligote
-:Aligote rdf:type owl:NamedIndividual ,
-                  :Grape ;
-         :isFarmedIn :France ;
+mead:Aligote rdf:type owl:NamedIndividual ,
+                  mead:Grape ;
+         mead:isFarmedIn mead:France ;
          rdfs:comment "A traditional white grape from Burgundy, commonly used for fresh, high-acidity wines and regional table wines." ;
          rdfs:label "Aligoté" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q1514198" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Any_Honey
-:Any_Honey rdf:type owl:NamedIndividual ,
-                    :Honey ;
+mead:Any_Honey rdf:type owl:NamedIndividual ,
+                    mead:Honey ;
            rdfs:comment "Honey is a sweet, viscous substance produced by bees from the nectar of flowers or the excretions of other insects, which they refine using enzymes and store in honeycombs as food. It is primarily composed of fructose and glucose, serving as a natural sweetener and having historical uses in cooking, medicine, and preservation." ;
            rdfs:label "Honey" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Barley_Wine
-:Barley_Wine rdf:type owl:NamedIndividual ,
-                      :Ale ;
-             :hasIngredient :Caramel_Malt ,
-                            :Crystal_Malt ,
-                            :East_Kent_Goldings ,
-                            :Fuggle ,
-                            :Munich_Malt ,
-                            :Pale_Malt ;
-             :isSimilarTo :Braggot ;
-             :originatesFrom :UK ;
-             :colour "Amber to deep brown" ;
-             :flavour "Rich, malty, caramel, dried fruit" ;
-             :maxABV 15 ;
-             :minABV 8 ;
+mead:Barley_Wine rdf:type owl:NamedIndividual ,
+                      mead:Ale ;
+             mead:hasIngredient mead:Caramel_Malt ,
+                            mead:Crystal_Malt ,
+                            mead:East_Kent_Goldings ,
+                            mead:Fuggle ,
+                            mead:Munich_Malt ,
+                            mead:Pale_Malt ;
+             mead:isSimilarTo mead:Braggot ;
+             mead:originatesFrom mead:UK ;
+             mead:colour "Amber to deep brown" ;
+             mead:flavour "Rich, malty, caramel, dried fruit" ;
+             mead:maxABV 15 ;
+             mead:minABV 8 ;
              rdfs:comment "A very strong ale traditionally brewed to resemble the strength and prestige of wine. It is often aged and may develop depth through maturation." ;
              rdfs:label "Barley Wine" ;
              rdfs:seeAlso "https://www.wikidata.org/wiki/Q808329" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Belgium
-:Belgium rdf:type owl:NamedIndividual ,
-                  :Country ;
+mead:Belgium rdf:type owl:NamedIndividual ,
+                  mead:Country ;
          rdfs:label "Belgium" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q31" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Black_Malt
-:Black_Malt rdf:type owl:NamedIndividual ,
-                     :Malt ;
+mead:Black_Malt rdf:type owl:NamedIndividual ,
+                     mead:Malt ;
             rdfs:comment "A heavily roasted malt used primarily for deep color and roasted character in dark beers. It contributes strong roasted grain notes and is typically used in small amounts." ;
             rdfs:label "Black Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Blonde_Ale
-:Blonde_Ale rdf:type owl:NamedIndividual ,
-                     :Ale ;
-            :hasIngredient :Cascade ,
-                           :Centennial ,
-                           :Chinook ,
-                           :Pale_Malt ,
-                           :Pilsner_Malt ;
-            :originatesFrom :UK ;
-            :colour "Pale gold" ;
-            :flavour "Light, clean, slightly bready, mild fruitiness" ;
-            :maxABV 5.5 ;
-            :minABV 3.8 ;
+mead:Blonde_Ale rdf:type owl:NamedIndividual ,
+                     mead:Ale ;
+            mead:hasIngredient mead:Cascade ,
+                           mead:Centennial ,
+                           mead:Chinook ,
+                           mead:Pale_Malt ,
+                           mead:Pilsner_Malt ;
+            mead:originatesFrom mead:UK ;
+            mead:colour "Pale gold" ;
+            mead:flavour "Light, clean, slightly bready, mild fruitiness" ;
+            mead:maxABV 5.5 ;
+            mead:minABV 3.8 ;
             rdfs:comment "A light, approachable ale designed as an easy-drinking style. It is often used as a gateway beer for newer drinkers." ;
             rdfs:label "Blonde Ale" ;
             rdfs:seeAlso "https://www.wikidata.org/wiki/Q23686128" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Bochet
-:Bochet rdf:type owl:NamedIndividual ,
-                 :Mead ;
-        :hasIngredient :Caramelised_Honey ;
-        :originatesFrom :France ;
-        :colour "Amber to dark brown" ;
-        :flavour "Caramelized honey, toasted marshmallow, sometimes smoky" ;
-        :maxABV 14 ;
-        :minABV 10 ;
+mead:Bochet rdf:type owl:NamedIndividual ,
+                 mead:Mead ;
+        mead:hasIngredient mead:Caramelised_Honey ;
+        mead:originatesFrom mead:France ;
+        mead:colour "Amber to dark brown" ;
+        mead:flavour "Caramelized honey, toasted marshmallow, sometimes smoky" ;
+        mead:maxABV 14 ;
+        mead:minABV 10 ;
         rdfs:comment "A mead made with caramelized or heated honey. This technique gives it a distinct historical and craft-oriented identity." ;
         rdfs:label "Bochet" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q22236355" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Bock
-:Bock rdf:type owl:NamedIndividual ,
-               :Lager ;
-      :hasIngredient :Hallertau_Mittelfruh ,
-                     :Munich_Malt ,
-                     :Pilsner_Malt ,
-                     :Tettnang ;
-      :originatesFrom :Germany ;
-      :colour "Amber to dark brown" ;
-      :flavour "Malty, toasty, slightly sweet" ;
-      :maxABV 7.5 ;
-      :minABV 6 ;
+mead:Bock rdf:type owl:NamedIndividual ,
+               mead:Lager ;
+      mead:hasIngredient mead:Hallertau_Mittelfruh ,
+                     mead:Munich_Malt ,
+                     mead:Pilsner_Malt ,
+                     mead:Tettnang ;
+      mead:originatesFrom mead:Germany ;
+      mead:colour "Amber to dark brown" ;
+      mead:flavour "Malty, toasty, slightly sweet" ;
+      mead:maxABV 7.5 ;
+      mead:minABV 6 ;
       rdfs:comment "A strong lager traditionally associated with German brewing. It is often brewed for seasonal release and historical festive consumption." ;
       rdfs:label "Bock" ;
       rdfs:seeAlso "https://www.wikidata.org/wiki/Q687737" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Bordeaux
-:Bordeaux rdf:type owl:NamedIndividual ,
-                   :RedWine ;
-          :hasIngredient :Cabernet_Franc ,
-                         :Cabernet_Sauvignon ,
-                         :Malbec ,
-                         :Merlot ,
-                         :Verdot ;
-          :originatesFrom :France ;
-          :colour "Deep ruby" ;
-          :flavour "Structured, tannic, dark fruit, earthy" ;
-          :maxABV 15 ;
-          :minABV 12 ;
+mead:Bordeaux rdf:type owl:NamedIndividual ,
+                   mead:RedWine ;
+          mead:hasIngredient mead:Cabernet_Franc ,
+                         mead:Cabernet_Sauvignon ,
+                         mead:Malbec ,
+                         mead:Merlot ,
+                         mead:Verdot ;
+          mead:originatesFrom mead:France ;
+          mead:colour "Deep ruby" ;
+          mead:flavour "Structured, tannic, dark fruit, earthy" ;
+          mead:maxABV 15 ;
+          mead:minABV 12 ;
           rdfs:comment "A wine region and style from southwestern France. It is famous for blended red wines and strict regional identity." ;
           rdfs:label "Bordeaux" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q67443910" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Braggot
-:Braggot rdf:type owl:NamedIndividual ,
-                  :Mead ;
-         :hasIngredient :Any_Honey ,
-                        :Cascade ,
-                        :Crystal_Malt ,
-                        :East_Kent_Goldings ,
-                        :Fuggle ,
-                        :Pale_Malt ;
-         :colour "Gold to brown" ;
-         :flavour "Malt-forward, honey notes, beer-like" ;
-         :maxABV 12 ;
-         :minABV 6 ;
+mead:Braggot rdf:type owl:NamedIndividual ,
+                  mead:Mead ;
+         mead:hasIngredient mead:Any_Honey ,
+                        mead:Cascade ,
+                        mead:Crystal_Malt ,
+                        mead:East_Kent_Goldings ,
+                        mead:Fuggle ,
+                        mead:Pale_Malt ;
+         mead:colour "Gold to brown" ;
+         mead:flavour "Malt-forward, honey notes, beer-like" ;
+         mead:maxABV 12 ;
+         mead:minABV 6 ;
          rdfs:comment "A hybrid beverage made from both honey and malted grain, combining mead and beer traditions. It has deep historical roots in Northern Europe." ;
          rdfs:label "Braggot" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q113869555" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Brown_Ale
-:Brown_Ale rdf:type owl:NamedIndividual ,
-                    :Ale ;
-           :hasIngredient :Chocolate_Malt ,
-                          :Crystal_Malt ,
-                          :East_Kent_Goldings ,
-                          :Fuggle ,
-                          :Pale_Malt ;
-           :originatesFrom :UK ;
-           :colour "Amber to brown" ;
-           :flavour "Nutty, caramel, chocolate hints, low bitterness" ;
-           :maxABV 7 ;
-           :minABV 3.5 ;
+mead:Brown_Ale rdf:type owl:NamedIndividual ,
+                    mead:Ale ;
+           mead:hasIngredient mead:Chocolate_Malt ,
+                          mead:Crystal_Malt ,
+                          mead:East_Kent_Goldings ,
+                          mead:Fuggle ,
+                          mead:Pale_Malt ;
+           mead:originatesFrom mead:UK ;
+           mead:colour "Amber to brown" ;
+           mead:flavour "Nutty, caramel, chocolate hints, low bitterness" ;
+           mead:maxABV 7 ;
+           mead:minABV 3.5 ;
            rdfs:comment "A traditional ale style that traces back to older English brewing practices. It is often seen as a balanced, everyday beer with a long regional history" ;
            rdfs:label "Brown Ale" ;
            rdfs:seeAlso "https://www.wikidata.org/wiki/Q2725773" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Bual
-:Bual rdf:type owl:NamedIndividual ,
-               :Grape ;
-      :isFarmedIn :Portugal ;
+mead:Bual rdf:type owl:NamedIndividual ,
+               mead:Grape ;
+      mead:isFarmedIn mead:Portugal ;
       rdfs:comment "A white grape associated especially with Madeira wine production, known historically as one of the classic Madeira varieties." ;
       rdfs:label "Bual" ;
       rdfs:seeAlso "https://www.wikidata.org/wiki/Q501200" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Burgundy
-:Burgundy rdf:type owl:NamedIndividual ,
-                   :RedWine ;
-          :hasIngredient :Aligote ,
-                         :Gamay ,
-                         :Pinot_Noir ;
-          :colour "Light ruby" ;
-          :flavour "Red fruit, earthy, light body" ;
-          :maxABV 14 ;
-          :minABV 12 ;
+mead:Burgundy rdf:type owl:NamedIndividual ,
+                   mead:RedWine ;
+          mead:hasIngredient mead:Aligote ,
+                         mead:Gamay ,
+                         mead:Pinot_Noir ;
+          mead:colour "Light ruby" ;
+          mead:flavour "Red fruit, earthy, light body" ;
+          mead:maxABV 14 ;
+          mead:minABV 12 ;
           rdfs:comment "A historic French wine region known for site-specific winemaking. It is closely associated with terroir-driven wines and traditional appellations." ;
           rdfs:label "Burgundy" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q43771277" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cabernet_Franc
-:Cabernet_Franc rdf:type owl:NamedIndividual ,
-                         :Grape ;
-                :isFarmedIn :France ;
+mead:Cabernet_Franc rdf:type owl:NamedIndividual ,
+                         mead:Grape ;
+                mead:isFarmedIn mead:France ;
                 rdfs:comment "A major red grape from Bordeaux and the Loire Valley, often used in blends but also produced as a varietal wine." ;
                 rdfs:label "Cabernet Franc" ;
                 rdfs:seeAlso "https://www.wikidata.org/wiki/Q63591" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cabernet_Sauvignon
-:Cabernet_Sauvignon rdf:type owl:NamedIndividual ,
-                             :Grape ;
-                    :isFarmedIn :France ;
+mead:Cabernet_Sauvignon rdf:type owl:NamedIndividual ,
+                             mead:Grape ;
+                    mead:isFarmedIn mead:France ;
                     rdfs:comment "One of the world’s most widely planted red grapes, originating in Bordeaux as a natural cross between Cabernet Franc and Sauvignon Blanc." ;
                     rdfs:label "Cabernet Sauvignon" ;
                     rdfs:seeAlso "https://www.wikidata.org/wiki/Q207310" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cabernet_Sauvignon_Wine
-:Cabernet_Sauvignon_Wine rdf:type owl:NamedIndividual ,
-                                  :RedWine ;
-                         :originatesFrom :France ;
-                         :colour "Deep red" ;
-                         :flavour "Blackcurrant, tannic, oak, spice" ;
-                         :maxABV 15 ;
-                         :minABV 13 ;
+mead:Cabernet_Sauvignon_Wine rdf:type owl:NamedIndividual ,
+                                  mead:RedWine ;
+                         mead:originatesFrom mead:France ;
+                         mead:colour "Deep red" ;
+                         mead:flavour "Blackcurrant, tannic, oak, spice" ;
+                         mead:maxABV 15 ;
+                         mead:minABV 13 ;
                          rdfs:comment "A globally planted red grape variety. It is one of the most recognized varieties in the international wine world." ;
                          rdfs:label "Cabernet Sauvignon (Wine)" ;
                          rdfs:seeAlso "https://www.wikidata.org/wiki/Q17329260" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Caramel_Malt
-:Caramel_Malt rdf:type owl:NamedIndividual ,
-                       :Malt ;
+mead:Caramel_Malt rdf:type owl:NamedIndividual ,
+                       mead:Malt ;
               rdfs:comment "A malt produced by heating moist grain so its internal sugars caramelize before roasting. It is commonly used to add body, sweetness, and color stability." ;
               rdfs:label "Caramel Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Caramelised_Honey
-:Caramelised_Honey rdf:type owl:NamedIndividual ,
-                            :Honey ;
+mead:Caramelised_Honey rdf:type owl:NamedIndividual ,
+                            mead:Honey ;
                    rdfs:comment "Caramelized honey is honey that has been gently heated to trigger sugar breakdown, resulting in a deeper golden-brown color and a rich, complex flavor with notes of caramel, toffee, and nuts. While this process reduces some natural enzymes, it enhances antioxidant properties and is used in both sweet and savory culinary applications." ;
                    rdfs:label "Caramelised Honey" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cardamom
-:Cardamom rdf:type owl:NamedIndividual ,
-                   :Botanical ;
+mead:Cardamom rdf:type owl:NamedIndividual ,
+                   mead:Botanical ;
           rdfs:comment "An aromatic spice made from the seeds of plants in the ginger family, widely used in beverages, desserts, and spiced alcoholic drinks." ;
           rdfs:label "Cardamom" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q14625808" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cascade
-:Cascade rdf:type owl:NamedIndividual ,
-                  :Hop ;
+mead:Cascade rdf:type owl:NamedIndividual ,
+                  mead:Hop ;
          rdfs:comment "An iconic American hop variety developed in Oregon and widely associated with the rise of craft brewing and American pale ales." ;
          rdfs:label "Cascade" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q2481908" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cava
-:Cava rdf:type owl:NamedIndividual ,
-               :SparklingWine ;
-      :hasIngredient :Chardonnay ,
-                     :Garnacha ,
-                     :Macabeo ,
-                     :Malvasia ,
-                     :Monastrell ,
-                     :Parellada ,
-                     :Pinot_Noir ,
-                     :Trepat ,
-                     :Xarel_lo ;
-      :originatesFrom :Spain ;
-      :colour "Pale gold" ;
-      :flavour "Crisp, citrus, light toast" ;
-      :maxABV 12.5 ;
-      :minABV 11.5 ;
+mead:Cava rdf:type owl:NamedIndividual ,
+               mead:SparklingWine ;
+      mead:hasIngredient mead:Chardonnay ,
+                     mead:Garnacha ,
+                     mead:Macabeo ,
+                     mead:Malvasia ,
+                     mead:Monastrell ,
+                     mead:Parellada ,
+                     mead:Pinot_Noir ,
+                     mead:Trepat ,
+                     mead:Xarel_lo ;
+      mead:originatesFrom mead:Spain ;
+      mead:colour "Pale gold" ;
+      mead:flavour "Crisp, citrus, light toast" ;
+      mead:maxABV 12.5 ;
+      mead:minABV 11.5 ;
       rdfs:comment "A traditional Spanish sparkling wine, mainly from Catalonia. It is typically made using the traditional method and has strong regional branding." ;
       rdfs:label "Cava" ;
       rdfs:seeAlso "https://www.wikidata.org/wiki/Q1051699" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Centennial
-:Centennial rdf:type owl:NamedIndividual ,
-                     :Hop ;
+mead:Centennial rdf:type owl:NamedIndividual ,
+                     mead:Hop ;
             rdfs:comment "A dual-purpose American hop bred for both bittering and aroma, commonly used in hop-forward beer styles." ;
             rdfs:label "Centennial" ;
             rdfs:seeAlso "https://www.wikidata.org/wiki/Q1893648" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Chablis
-:Chablis rdf:type owl:NamedIndividual ,
-                  :WhiteWine ;
-         :hasIngredient :Chardonnay ;
-         :originatesFrom :France ;
-         :colour "Straw to gold" ;
-         :flavour "Crisp acidity, citusy, mineral notes." ;
-         :maxABV 14.5 ;
-         :minABV 12 ;
+mead:Chablis rdf:type owl:NamedIndividual ,
+                  mead:WhiteWine ;
+         mead:hasIngredient mead:Chardonnay ;
+         mead:originatesFrom mead:France ;
+         mead:colour "Straw to gold" ;
+         mead:flavour "Crisp acidity, citusy, mineral notes." ;
+         mead:maxABV 14.5 ;
+         mead:minABV 12 ;
          rdfs:comment "Chablis is a renowned white wine produced in the northernmost part of the Burgundy, France. Made exclusively from Chardonnay grapes." ;
          rdfs:label "Chablis" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q114226148" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Champagne
-:Champagne rdf:type owl:NamedIndividual ,
-                    :SparklingWine ;
-           :hasIngredient :Chardonnay ,
-                          :Pinot_Meunier ,
-                          :Pinot_Noir ;
-           :originatesFrom :France ;
-           :colour "Pale gold" ;
-           :flavour "Citrus, brioche, high acidity" ;
-           :maxABV 12.5 ;
-           :minABV 12 ;
+mead:Champagne rdf:type owl:NamedIndividual ,
+                    mead:SparklingWine ;
+           mead:hasIngredient mead:Chardonnay ,
+                          mead:Pinot_Meunier ,
+                          mead:Pinot_Noir ;
+           mead:originatesFrom mead:France ;
+           mead:colour "Pale gold" ;
+           mead:flavour "Citrus, brioche, high acidity" ;
+           mead:maxABV 12.5 ;
+           mead:minABV 12 ;
            rdfs:comment "A sparkling wine from the Champagne region of France. Its name and production rules are legally protected and globally famous." ;
            rdfs:label "Champagne" ;
            rdfs:seeAlso "https://www.wikidata.org/wiki/Q134862" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Chardonnay
-:Chardonnay rdf:type owl:NamedIndividual ,
-                     :Grape ;
-            :isFarmedIn :France ;
+mead:Chardonnay rdf:type owl:NamedIndividual ,
+                     mead:Grape ;
+            mead:isFarmedIn mead:France ;
             rdfs:comment "A globally important white grape originating in Burgundy, valued for its adaptability to many climates and winemaking styles." ;
             rdfs:label "Chardonnay" ;
             rdfs:seeAlso "https://www.wikidata.org/wiki/Q213332" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Chianti
-:Chianti rdf:type owl:NamedIndividual ,
-                  :RedWine ;
-         :hasIngredient :Sangiovese ;
-         :originatesFrom :Italy ;
-         :colour "Ruby" ;
-         :flavour "Cherry, herbal, high acidity" ;
-         :maxABV 14.5 ;
-         :minABV 12.5 ;
+mead:Chianti rdf:type owl:NamedIndividual ,
+                  mead:RedWine ;
+         mead:hasIngredient mead:Sangiovese ;
+         mead:originatesFrom mead:Italy ;
+         mead:colour "Ruby" ;
+         mead:flavour "Cherry, herbal, high acidity" ;
+         mead:maxABV 14.5 ;
+         mead:minABV 12.5 ;
          rdfs:comment "A traditional Tuscan red wine style from Italy. It is strongly tied to regional identity and Italian dining culture." ;
          rdfs:label "Chianti" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q3948377" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Chinook
-:Chinook rdf:type owl:NamedIndividual ,
-                  :Hop ;
+mead:Chinook rdf:type owl:NamedIndividual ,
+                  mead:Hop ;
          rdfs:comment "A robust American hop known for high alpha acid content and widespread use in strong ales and IPAs." ;
          rdfs:label "Chinook" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q2627032" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Chocolate_Malt
-:Chocolate_Malt rdf:type owl:NamedIndividual ,
-                         :Malt ;
+mead:Chocolate_Malt rdf:type owl:NamedIndividual ,
+                         mead:Malt ;
                 rdfs:comment "A dark roasted malt named for its rich brown color rather than the inclusion of chocolate. It is frequently used in porters and stouts." ;
                 rdfs:label "Chocolate Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cinnamon
-:Cinnamon rdf:type owl:NamedIndividual ,
-                   :Botanical ;
+mead:Cinnamon rdf:type owl:NamedIndividual ,
+                   mead:Botanical ;
           rdfs:comment "A spice obtained from the inner bark of cinnamon trees, commonly used to add warmth and sweetness to festive and mulled beverages." ;
           rdfs:label "Cinnamon" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q28165" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Citra
-:Citra rdf:type owl:NamedIndividual ,
-                :Hop ;
+mead:Citra rdf:type owl:NamedIndividual ,
+                mead:Hop ;
        rdfs:comment "A modern American aroma hop developed for highly expressive aromatic qualities and heavily used in contemporary craft beer." ;
        rdfs:label "Citra" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q4885587" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cloves
-:Cloves rdf:type owl:NamedIndividual ,
-                 :Botanical ;
+mead:Cloves rdf:type owl:NamedIndividual ,
+                 mead:Botanical ;
         rdfs:comment "Dried flower buds from the clove tree, valued for their intense aromatic qualities in spiced drinks and preserved beverages." ;
         rdfs:label "Cloves" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q15622897" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Croatia
-:Croatia rdf:type owl:NamedIndividual ,
-                  :Country ;
+mead:Croatia rdf:type owl:NamedIndividual ,
+                  mead:Country ;
          rdfs:label "Croatia" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q224" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Crystal_Malt
-:Crystal_Malt rdf:type owl:NamedIndividual ,
-                       :Malt ;
+mead:Crystal_Malt rdf:type owl:NamedIndividual ,
+                       mead:Malt ;
               rdfs:comment "A type of caramelized malt in which sugars are converted inside the grain before kilning. It is valued for improving mouthfeel and residual sweetness." ;
               rdfs:label "Crystal Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Cyser
-:Cyser rdf:type owl:NamedIndividual ,
-                :Melomel ;
-       :hasIngredient :Any_Honey ,
-                      :Dabinett ,
-                      :Kingston_Black ;
-       :isSimilarTo :English_Cider ;
-       :colour "Gold  to amber" ;
-       :flavour "Honey notes, rich apple flavor" ;
-       :maxABV 14 ;
-       :minABV 8 ;
+mead:Cyser rdf:type owl:NamedIndividual ,
+                mead:Melomel ;
+       mead:hasIngredient mead:Any_Honey ,
+                      mead:Dabinett ,
+                      mead:Kingston_Black ;
+       mead:isSimilarTo mead:English_Cider ;
+       mead:colour "Gold  to amber" ;
+       mead:flavour "Honey notes, rich apple flavor" ;
+       mead:maxABV 14 ;
+       mead:minABV 8 ;
        rdfs:comment "A melomel made with apples or apple juice. It bridges cider and mead traditions." ;
        rdfs:label "Cyser" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Czech_Republic
-:Czech_Republic rdf:type owl:NamedIndividual ,
-                         :Country ;
+mead:Czech_Republic rdf:type owl:NamedIndividual ,
+                         mead:Country ;
                 rdfs:label "Czech Republic" ;
                 rdfs:seeAlso "https://www.wikidata.org/wiki/Q213" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Dabinett
-:Dabinett rdf:type owl:NamedIndividual ,
-                   :Apple ;
+mead:Dabinett rdf:type owl:NamedIndividual ,
+                   mead:Apple ;
           rdfs:comment "Bittersweet variety prized for its high tannins and low acidity, contributing body and smoothness to cider. It's reliable, self-fertile, and widely used in both blends and single-varietal ciders." ;
           rdfs:label "Dabinett" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q5207488" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Dunkel
-:Dunkel rdf:type owl:NamedIndividual ,
-                 :Lager ;
-        :hasIngredient :Hallertau_Mittelfruh ,
-                       :Munich_Malt ,
-                       :Spalt ,
-                       :Vienna_Malt ;
-        :originatesFrom :Germany ;
-        :colour "Dark amber to brown" ;
-        :flavour "Bread crust, toast, mild chocolate" ;
-        :maxABV 5.5 ;
-        :minABV 4.5 ;
+mead:Dunkel rdf:type owl:NamedIndividual ,
+                 mead:Lager ;
+        mead:hasIngredient mead:Hallertau_Mittelfruh ,
+                       mead:Munich_Malt ,
+                       mead:Spalt ,
+                       mead:Vienna_Malt ;
+        mead:originatesFrom mead:Germany ;
+        mead:colour "Dark amber to brown" ;
+        mead:flavour "Bread crust, toast, mild chocolate" ;
+        mead:maxABV 5.5 ;
+        mead:minABV 4.5 ;
         rdfs:comment "A dark German lager with deep roots in traditional Munich brewing. It is one of the classic old-style lager families." ;
         rdfs:label "Dunkel" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q1265882" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#East_Kent_Goldings
-:East_Kent_Goldings rdf:type owl:NamedIndividual ,
-                             :Hop ;
+mead:East_Kent_Goldings rdf:type owl:NamedIndividual ,
+                             mead:Hop ;
                     rdfs:comment "A historic English hop variety traditionally associated with classic British ales and regional brewing heritage." ;
                     rdfs:label "East Kent Goldings" ;
                     rdfs:seeAlso "https://www.wikidata.org/wiki/Q2194295" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#English_Cider
-:English_Cider rdf:type owl:NamedIndividual ,
-                        :Cider ;
-               :hasIngredient :Dabinett ,
-                              :Kingston_Black ;
-               :originatesFrom :UK ;
-               :colour "Pale gold to amber" ;
-               :flavour "Apple-forward, dry to sweet, sometimes tannic" ;
-               :maxABV 7 ;
-               :minABV 4.5 ;
+mead:English_Cider rdf:type owl:NamedIndividual ,
+                        mead:Cider ;
+               mead:hasIngredient mead:Dabinett ,
+                              mead:Kingston_Black ;
+               mead:originatesFrom mead:UK ;
+               mead:colour "Pale gold to amber" ;
+               mead:flavour "Apple-forward, dry to sweet, sometimes tannic" ;
+               mead:maxABV 7 ;
+               mead:minABV 4.5 ;
                rdfs:comment "A traditional cider style associated with England’s apple-growing regions. It is often made with cider apples and may reflect farmhouse or orchard traditions." ;
                rdfs:label "English Cider" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#France
-:France rdf:type owl:NamedIndividual ,
-                 :Country ;
+mead:France rdf:type owl:NamedIndividual ,
+                 mead:Country ;
         rdfs:label "France" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q142" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Fuggle
-:Fuggle rdf:type owl:NamedIndividual ,
-                 :Hop ;
+mead:Fuggle rdf:type owl:NamedIndividual ,
+                 mead:Hop ;
         rdfs:comment "One of the oldest commercially important English hops, widely used in traditional British beer styles." ;
         rdfs:label "Fuggle" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q2515067" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Futsu-shu
-:Futsu-shu rdf:type owl:NamedIndividual ,
-                    :Sake ;
-           :hasIngredient :Koji_Rice ;
-           :originatesFrom :Japan ;
-           :colour "Clear to pale straw" ;
-           :flavour "Light, slightly sweet, rice-driven, sometimes sharp" ;
-           :maxABV 15 ;
-           :minABV 12 ;
+mead:Futsu-shu rdf:type owl:NamedIndividual ,
+                    mead:Sake ;
+           mead:hasIngredient mead:Koji_Rice ;
+           mead:originatesFrom mead:Japan ;
+           mead:colour "Clear to pale straw" ;
+           mead:flavour "Light, slightly sweet, rice-driven, sometimes sharp" ;
+           mead:maxABV 15 ;
+           mead:minABV 12 ;
            rdfs:comment "The standard everyday category of sake. It is the broadest and most commonly produced type, often serving as the basic house style." ;
            rdfs:label "Futsu-shu" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Gamay
-:Gamay rdf:type owl:NamedIndividual ,
-                :Grape ;
-       :isFarmedIn :France ;
+mead:Gamay rdf:type owl:NamedIndividual ,
+                mead:Grape ;
+       mead:isFarmedIn mead:France ;
        rdfs:comment "A red grape producing wines intended for youthful drinking and regional expression." ;
        rdfs:label "Gamay" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q12982" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Garnacha
-:Garnacha rdf:type owl:NamedIndividual ,
-                   :Grape ;
-          :isFarmedIn :Spain ;
+mead:Garnacha rdf:type owl:NamedIndividual ,
+                   mead:Grape ;
+          mead:isFarmedIn mead:Spain ;
           rdfs:comment "A widely cultivated red grape, also known as Grenache in France, commonly used in blends and Mediterranean wine styles." ;
           rdfs:label "Garnacha" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q1545629" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Generic_Grape
-:Generic_Grape rdf:type owl:NamedIndividual ,
-                        :Grape ;
+mead:Generic_Grape rdf:type owl:NamedIndividual ,
+                        mead:Grape ;
                rdfs:comment "Grape is unknown or depends on the blends of wines used" ;
                rdfs:label "Generic Grape" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Germany
-:Germany rdf:type owl:NamedIndividual ,
-                  :Country ;
+mead:Germany rdf:type owl:NamedIndividual ,
+                  mead:Country ;
          rdfs:label "Germany" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q183" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Ginger
-:Ginger rdf:type owl:NamedIndividual ,
-                 :Botanical ;
+mead:Ginger rdf:type owl:NamedIndividual ,
+                 mead:Botanical ;
         rdfs:comment "A pungent root widely used in brewing, fermentation, and spiced beverages for its warming and aromatic character." ;
         rdfs:label "Ginger" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q35625" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Glera
-:Glera rdf:type owl:NamedIndividual ,
-                :Grape ;
-       :isFarmedIn :Italy ;
+mead:Glera rdf:type owl:NamedIndividual ,
+                mead:Grape ;
+       mead:isFarmedIn mead:Italy ;
        rdfs:comment "The principal grape used in Prosecco production, grown mainly in northeastern Italy." ;
        rdfs:label "Glera" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q1530756" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Gluhwein
-:Gluhwein rdf:type owl:NamedIndividual ,
-                   :SpicedWine ;
-          :hasIngredient :Cardamom ,
-                         :Cinnamon ,
-                         :Cloves ,
-                         :Generic_Grape ,
-                         :Nutmeg ,
-                         :Orange ,
-                         :Star_Anise ,
-                         :Sugar ;
-          :originatesFrom :Germany ;
-          :colour "Red or amber" ;
-          :flavour "Warm, spicy, sweet" ;
-          :maxABV 20 ;
-          :minABV 7 ;
+mead:Gluhwein rdf:type owl:NamedIndividual ,
+                   mead:SpicedWine ;
+          mead:hasIngredient mead:Cardamom ,
+                         mead:Cinnamon ,
+                         mead:Cloves ,
+                         mead:Generic_Grape ,
+                         mead:Nutmeg ,
+                         mead:Orange ,
+                         mead:Star_Anise ,
+                         mead:Sugar ;
+          mead:originatesFrom mead:Germany ;
+          mead:colour "Red or amber" ;
+          mead:flavour "Warm, spicy, sweet" ;
+          mead:maxABV 20 ;
+          mead:minABV 7 ;
           rdfs:comment "A heated spiced wine traditionally served during winter in German-speaking regions. It is especially associated with Christmas markets." ;
           rdfs:label "Glühwein" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q104636031" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Graciano
-:Graciano rdf:type owl:NamedIndividual ,
-                   :Grape ;
-          :isFarmedIn :Spain ;
+mead:Graciano rdf:type owl:NamedIndividual ,
+                   mead:Grape ;
+          mead:isFarmedIn mead:Spain ;
           rdfs:comment "A red grape traditionally used in Rioja blends for structure, aroma, and aging potential." ;
           rdfs:label "Graciano" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q119794" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Greece
-:Greece rdf:type owl:NamedIndividual ,
-                 :Country ;
+mead:Greece rdf:type owl:NamedIndividual ,
+                 mead:Country ;
         rdfs:label "Greece" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q41" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Gruit
-:Gruit rdf:type owl:NamedIndividual ,
-                :Ale ;
-       :hasIngredient :Munich_Malt ,
-                      :Myrtle ,
-                      :Pale_Malt ,
-                      :Rosemary ,
-                      :Yarrow ;
-       :colour "Pale to brown" ;
-       :flavour "Herbal, spicy, earthy, not as bitter as beers that use hops" ;
-       :maxABV 6 ;
-       :minABV 4 ;
+mead:Gruit rdf:type owl:NamedIndividual ,
+                mead:Ale ;
+       mead:hasIngredient mead:Munich_Malt ,
+                      mead:Myrtle ,
+                      mead:Pale_Malt ,
+                      mead:Rosemary ,
+                      mead:Yarrow ;
+       mead:colour "Pale to brown" ;
+       mead:flavour "Herbal, spicy, earthy, not as bitter as beers that use hops" ;
+       mead:maxABV 6 ;
+       mead:minABV 4 ;
        rdfs:comment "A historical beer style brewed with herbs and spices instead of hops. It reflects pre-hop brewing traditions in Europe." ;
        rdfs:label "Gruit Beer" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q2725773" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Hallertau_Mittelfruh
-:Hallertau_Mittelfruh rdf:type owl:NamedIndividual ,
-                               :Hop ;
+mead:Hallertau_Mittelfruh rdf:type owl:NamedIndividual ,
+                               mead:Hop ;
                       rdfs:comment "A classic noble hop from the Hallertau region, strongly associated with traditional German lagers." ;
                       rdfs:label "Hallertau Mittelfrüh" ;
                       rdfs:seeAlso "https://www.wikidata.org/wiki/Q1906149" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Helles
-:Helles rdf:type owl:NamedIndividual ,
-                 :Lager ;
-        :hasIngredient :Hallertau_Mittelfruh ,
-                       :Pilsner_Malt ,
-                       :Tettnang ;
-        :originatesFrom :Germany ;
-        :colour "Pale gold" ;
-        :flavour "Clean, soft malt sweetness, very mild hops" ;
-        :maxABV 5.5 ;
-        :minABV 4.5 ;
+mead:Helles rdf:type owl:NamedIndividual ,
+                 mead:Lager ;
+        mead:hasIngredient mead:Hallertau_Mittelfruh ,
+                       mead:Pilsner_Malt ,
+                       mead:Tettnang ;
+        mead:originatesFrom mead:Germany ;
+        mead:colour "Pale gold" ;
+        mead:flavour "Clean, soft malt sweetness, very mild hops" ;
+        mead:maxABV 5.5 ;
+        mead:minABV 4.5 ;
         rdfs:comment "A pale German lager created as a response to darker regional lagers. It is one of the best-known everyday lagers in southern Germany." ;
         rdfs:label "Helles" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q261105" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Hippocras
-:Hippocras rdf:type owl:NamedIndividual ,
-                    :SpicedWine ;
-           :hasIngredient :Cardamom ,
-                          :Cinnamon ,
-                          :Generic_Grape ,
-                          :Ginger ,
-                          :Nutmeg ,
-                          :Orange ,
-                          :Rose ,
-                          :Sugar ;
-           :isSimilarTo :Gluhwein ;
-           :colour "Red or amber" ;
-           :flavour "Spiced, sweet" ;
-           :maxABV 14 ;
-           :minABV 12 ;
+mead:Hippocras rdf:type owl:NamedIndividual ,
+                    mead:SpicedWine ;
+           mead:hasIngredient mead:Cardamom ,
+                          mead:Cinnamon ,
+                          mead:Generic_Grape ,
+                          mead:Ginger ,
+                          mead:Nutmeg ,
+                          mead:Orange ,
+                          mead:Rose ,
+                          mead:Sugar ;
+           mead:isSimilarTo mead:Gluhwein ;
+           mead:colour "Red or amber" ;
+           mead:flavour "Spiced, sweet" ;
+           mead:maxABV 14 ;
+           mead:minABV 12 ;
            rdfs:comment "A historical spiced wine drink from medieval Europe. It was commonly sweetened and seasoned with spices in aristocratic and festive contexts." ;
            rdfs:label "Hippocras" ;
            rdfs:seeAlso "https://www.wikidata.org/wiki/Q673389" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Hydromel
-:Hydromel rdf:type owl:NamedIndividual ,
-                   :Mead ;
-          :hasIngredient :Any_Honey ;
-          :colour "Pale" ;
-          :flavour "Light, refreshing, mildly sweet" ;
-          :maxABV 7 ;
-          :minABV 3 ;
+mead:Hydromel rdf:type owl:NamedIndividual ,
+                   mead:Mead ;
+          mead:hasIngredient mead:Any_Honey ;
+          mead:colour "Pale" ;
+          mead:flavour "Light, refreshing, mildly sweet" ;
+          mead:maxABV 7 ;
+          mead:minABV 3 ;
           rdfs:comment "A lighter, lower-strength mead made with a lower honey concentration. The term is also used for simple honey-water fermented drinks." ;
           rdfs:label "Hydromel" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#India_Pale_Ale
-:India_Pale_Ale rdf:type owl:NamedIndividual ,
-                         :Ale ;
-                :hasIngredient :Cascade ,
-                               :Centennial ,
-                               :Chinook ,
-                               :Citra ,
-                               :Crystal_Malt ,
-                               :Pale_Malt ;
-                :originatesFrom :UK ;
-                :colour "Gold to amber" ;
-                :flavour "Bitter, citrus, pine, tropical fruit" ;
-                :maxABV 8 ;
-                :minABV 5 ;
+mead:India_Pale_Ale rdf:type owl:NamedIndividual ,
+                         mead:Ale ;
+                mead:hasIngredient mead:Cascade ,
+                               mead:Centennial ,
+                               mead:Chinook ,
+                               mead:Citra ,
+                               mead:Crystal_Malt ,
+                               mead:Pale_Malt ;
+                mead:originatesFrom mead:UK ;
+                mead:colour "Gold to amber" ;
+                mead:flavour "Bitter, citrus, pine, tropical fruit" ;
+                mead:maxABV 8 ;
+                mead:minABV 5 ;
                 rdfs:comment "An ale style historically associated with export beer shipped over long distances. It became strongly linked with hop-forward brewing and modern craft beer culture." ;
                 rdfs:label "India Pale Ale (IPA)" ;
                 rdfs:seeAlso "https://www.wikidata.org/wiki/Q1543214" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Italy
-:Italy rdf:type owl:NamedIndividual ,
-                :Country ;
+mead:Italy rdf:type owl:NamedIndividual ,
+                mead:Country ;
        rdfs:label "Italy" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q38" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Japan
-:Japan rdf:type owl:NamedIndividual ,
-                :Country ;
+mead:Japan rdf:type owl:NamedIndividual ,
+                mead:Country ;
        rdfs:label "Japan" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q17" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Kingston_Black
-:Kingston_Black rdf:type owl:NamedIndividual ,
-                         :Apple ;
+mead:Kingston_Black rdf:type owl:NamedIndividual ,
+                         mead:Apple ;
                 rdfs:comment "Bittersharp apple, offering a rare balance of high tannins and high acidity. It's considered one of the finest cider apples, capable of producing complex, wine-like ciders on its own." ;
                 rdfs:label "Kingston Black" ;
                 rdfs:seeAlso "https://www.wikidata.org/wiki/Q6413468" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Koji_Rice
-:Koji_Rice rdf:type owl:NamedIndividual ,
-                    :Rice ;
+mead:Koji_Rice rdf:type owl:NamedIndividual ,
+                    mead:Rice ;
            rdfs:label "Koji Rice" ;
            rdfs:seeAlso "Koji rice is steamed rice inoculated with the mold Aspergillus oryzae, which produces enzymes that break down starches and proteins into sugars and amino acids during fermentation." ,
                         "https://www.wikidata.org/wiki/Q1135788" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Lavander
-:Lavander rdf:type owl:NamedIndividual ,
-                   :Botanical ;
+mead:Lavander rdf:type owl:NamedIndividual ,
+                   mead:Botanical ;
           rdfs:comment "A fragrant flowering herb traditionally used in herbal infusions, liqueurs, and botanical beverage recipes." ;
           rdfs:label "Lavander" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q171892" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Liberty
-:Liberty rdf:type owl:NamedIndividual ,
-                  :Hop ;
+mead:Liberty rdf:type owl:NamedIndividual ,
+                  mead:Hop ;
          rdfs:comment "An American hop bred from noble European hop lineage to emulate traditional continental brewing characteristics." ;
          rdfs:label "Liberty" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q1871864" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Macabeo
-:Macabeo rdf:type owl:NamedIndividual ,
-                  :Grape ;
-         :isFarmedIn :Spain ;
+mead:Macabeo rdf:type owl:NamedIndividual ,
+                  mead:Grape ;
+         mead:isFarmedIn mead:Spain ;
          rdfs:comment "A white grape widely used in Cava production and also known as Viura in some Spanish regions." ;
          rdfs:label "Macabeo" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q1756570" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Madeira
-:Madeira rdf:type owl:NamedIndividual ,
-                  :DessertWine ;
-         :hasIngredient :Bual ,
-                        :Malvasia ,
-                        :Sercial ,
-                        :Tinta_Negra ,
-                        :Verdelho ;
-         :originatesFrom :Portugal ;
-         :colour "Amber to dark brown" ;
-         :flavour "Oxidized, nutty, caramelized" ;
-         :maxABV 20 ;
-         :minABV 16 ;
+mead:Madeira rdf:type owl:NamedIndividual ,
+                  mead:DessertWine ;
+         mead:hasIngredient mead:Bual ,
+                        mead:Malvasia ,
+                        mead:Sercial ,
+                        mead:Tinta_Negra ,
+                        mead:Verdelho ;
+         mead:originatesFrom mead:Portugal ;
+         mead:colour "Amber to dark brown" ;
+         mead:flavour "Oxidized, nutty, caramelized" ;
+         mead:maxABV 20 ;
+         mead:minABV 16 ;
          rdfs:comment "A fortified wine from Portugal’s Madeira islands, known for its deliberate heating and oxidation during maturation. It has exceptional stability and long aging potential." ;
          rdfs:label "Madeira" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q27697" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Malbec
-:Malbec rdf:type owl:NamedIndividual ,
-                 :Grape ;
-        :isFarmedIn :France ;
+mead:Malbec rdf:type owl:NamedIndividual ,
+                 mead:Grape ;
+        mead:isFarmedIn mead:France ;
         rdfs:comment "A dark-skinned grape originally from southwestern France, now strongly associated with Argentine winemaking." ;
         rdfs:label "Malbec" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q1414045" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Malvasia
-:Malvasia rdf:type owl:NamedIndividual ,
-                   :Grape ;
-          :isFarmedIn :Greece ;
+mead:Malvasia rdf:type owl:NamedIndividual ,
+                   mead:Grape ;
+          mead:isFarmedIn mead:Greece ;
           rdfs:comment "An ancient family of grape varieties spread throughout the Mediterranean, used in both sweet and dry wines." ;
           rdfs:label "Malvasia" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q1165349" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Mazuelo
-:Mazuelo rdf:type owl:NamedIndividual ,
-                  :Grape ;
-         :isFarmedIn :Spain ;
+mead:Mazuelo rdf:type owl:NamedIndividual ,
+                  mead:Grape ;
+         mead:isFarmedIn mead:Spain ;
          rdfs:comment "A red grape commonly used in Rioja and Mediterranean blends." ;
          rdfs:label "Mazuelo"@es ,
                     "Carignan" ;
@@ -1099,31 +1099,31 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Merlot
-:Merlot rdf:type owl:NamedIndividual ,
-                 :Grape ;
-        :isFarmedIn :France ;
+mead:Merlot rdf:type owl:NamedIndividual ,
+                 mead:Grape ;
+        mead:isFarmedIn mead:France ;
         rdfs:comment "A major Bordeaux grape known for its broad international cultivation and importance in blended wines." ;
         rdfs:label "Merlot" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q213338" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Merlot_Wine
-:Merlot_Wine rdf:type owl:NamedIndividual ,
-                      :RedWine ;
-             :originatesFrom :France ;
-             :colour "Ruby" ;
-             :flavour "Plum, soft tannins, smooth" ;
-             :maxABV 14.5 ;
-             :minABV 13 ;
+mead:Merlot_Wine rdf:type owl:NamedIndividual ,
+                      mead:RedWine ;
+             mead:originatesFrom mead:France ;
+             mead:colour "Ruby" ;
+             mead:flavour "Plum, soft tannins, smooth" ;
+             mead:maxABV 14.5 ;
+             mead:minABV 13 ;
              rdfs:comment "A widely planted red grape variety used in both varietal and blended wines. It is valued for versatility and broad commercial appeal." ;
              rdfs:label "Merlot (Wine)" ;
              rdfs:seeAlso "https://www.wikidata.org/wiki/Q125396288" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Monastrell
-:Monastrell rdf:type owl:NamedIndividual ,
-                     :Grape ;
-            :isFarmedIn :Spain ;
+mead:Monastrell rdf:type owl:NamedIndividual ,
+                     mead:Grape ;
+            mead:isFarmedIn mead:Spain ;
             rdfs:comment "A heat-tolerant red grape also known as Mourvèdre in France, common in Mediterranean viticulture." ;
             rdfs:label "Monastrell"@es ,
                        "Mourvèdre" ;
@@ -1131,9 +1131,9 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Moscato
-:Moscato rdf:type owl:NamedIndividual ,
-                  :Grape ;
-         :isFarmedIn :Italy ;
+mead:Moscato rdf:type owl:NamedIndividual ,
+                  mead:Grape ;
+         mead:isFarmedIn mead:Italy ;
          rdfs:comment "The Italian name for Muscat grape varieties, especially associated with aromatic and lightly sparkling wines." ;
          rdfs:label "Moscato"@it ,
                     "Muscat" ;
@@ -1141,190 +1141,190 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Moscato_Wine
-:Moscato_Wine rdf:type owl:NamedIndividual ,
-                       :WhiteWine ;
-              :hasIngredient :Moscato ;
-              :originatesFrom :Italy ;
-              :colour "Pale straw" ;
-              :flavour "Sweet, floral, peach" ;
-              :maxABV 9 ;
-              :minABV 5 ;
+mead:Moscato_Wine rdf:type owl:NamedIndividual ,
+                       mead:WhiteWine ;
+              mead:hasIngredient mead:Moscato ;
+              mead:originatesFrom mead:Italy ;
+              mead:colour "Pale straw" ;
+              mead:flavour "Sweet, floral, peach" ;
+              mead:maxABV 9 ;
+              mead:minABV 5 ;
               rdfs:comment "Wines made exclusively from Muscat grapes, one of the oldest known grape families in the world. Most commonly associated with Italy, particularly the Piedmont region." ;
               rdfs:label "Moscato (Wine)" ;
               rdfs:seeAlso "https://www.wikidata.org/wiki/Q1198126" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Munich_Malt
-:Munich_Malt rdf:type owl:NamedIndividual ,
-                      :Malt ;
+mead:Munich_Malt rdf:type owl:NamedIndividual ,
+                      mead:Malt ;
              rdfs:comment "A traditional European base malt kilned at higher temperatures than pale malt. It is widely used in malt-forward lagers and traditional German styles." ;
              rdfs:label "Munich Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Myrtle
-:Myrtle rdf:type owl:NamedIndividual ,
-                 :Botanical ;
+mead:Myrtle rdf:type owl:NamedIndividual ,
+                 mead:Botanical ;
         rdfs:comment "An aromatic evergreen plant used in Mediterranean culinary and alcoholic traditions, especially in herbal infusions and liqueurs." ;
         rdfs:label "Myrtle" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q165152" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Northern_Brewer
-:Northern_Brewer rdf:type owl:NamedIndividual ,
-                          :Hop ;
+mead:Northern_Brewer rdf:type owl:NamedIndividual ,
+                          mead:Hop ;
                  rdfs:comment "A dual-purpose hop developed in England and later widely cultivated in Germany for both ales and lagers." ;
                  rdfs:label "Northern Brewer" ;
                  rdfs:seeAlso "https://www.wikidata.org/wiki/Q2721838" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Nutmeg
-:Nutmeg rdf:type owl:NamedIndividual ,
-                 :Botanical ;
+mead:Nutmeg rdf:type owl:NamedIndividual ,
+                 mead:Botanical ;
         rdfs:comment "A spice derived from the seed of the nutmeg tree, frequently used in winter beverages and historical spiced wine recipes." ;
         rdfs:label "Nutmeg" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q83165" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Orange
-:Orange rdf:type owl:NamedIndividual ,
-                 :Fruit ;
+mead:Orange rdf:type owl:NamedIndividual ,
+                 mead:Fruit ;
         rdfs:comment "A citrus fruit frequently used in brewing and beverage-making for zest, juice, or aromatic peel additions." ;
         rdfs:label "Orange" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q13191" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pale_Malt
-:Pale_Malt rdf:type owl:NamedIndividual ,
-                    :Malt ;
+mead:Pale_Malt rdf:type owl:NamedIndividual ,
+                    mead:Malt ;
            rdfs:comment "A lightly kilned base malt that serves as the primary fermentable foundation for many beer styles. It is one of the most common brewing malts worldwide." ;
            rdfs:label "Pale Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Palomino_Fino
-:Palomino_Fino rdf:type owl:NamedIndividual ,
-                        :Grape ;
-               :isFarmedIn :Spain ;
+mead:Palomino_Fino rdf:type owl:NamedIndividual ,
+                        mead:Grape ;
+               mead:isFarmedIn mead:Spain ;
                rdfs:comment "The primary grape used in dry Sherry production, especially in Andalusia." ;
                rdfs:label "Palomino Fino" ;
                rdfs:seeAlso "https://www.wikidata.org/wiki/Q657693" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Parellada
-:Parellada rdf:type owl:NamedIndividual ,
-                    :Grape ;
-           :isFarmedIn :Spain ;
+mead:Parellada rdf:type owl:NamedIndividual ,
+                    mead:Grape ;
+           mead:isFarmedIn mead:Spain ;
            rdfs:comment "traditional white grape used mainly in Cava blends, valued for delicacy and freshness." ;
            rdfs:label "Parellada" ;
            rdfs:seeAlso "https://www.wikidata.org/wiki/Q1751915" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Peach
-:Peach rdf:type owl:NamedIndividual ,
-                :Fruit ;
+mead:Peach rdf:type owl:NamedIndividual ,
+                mead:Fruit ;
        rdfs:comment "A stone fruit often used in fruit beers, wines, ciders, and sweet fermented beverages for added fruit character." ;
        rdfs:label "Peach" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q13202263" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pedro_Ximenez
-:Pedro_Ximenez rdf:type owl:NamedIndividual ,
-                        :Grape ;
-               :isFarmedIn :Spain ;
+mead:Pedro_Ximenez rdf:type owl:NamedIndividual ,
+                        mead:Grape ;
+               mead:isFarmedIn mead:Spain ;
                rdfs:comment "A white grape famous for intensely sweet fortified wines, particularly in Sherry production." ;
                rdfs:label "Pedro Ximénez" ;
                rdfs:seeAlso "https://www.wikidata.org/wiki/Q1930535" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pilsner
-:Pilsner rdf:type owl:NamedIndividual ,
-                  :Lager ;
-         :hasIngredient :Pilsner_Malt ,
-                        :Saaz ;
-         :originatesFrom :Czech_Republic ;
-         :colour "Pale straw to gold" ;
-         :flavour "Crisp, dry, noticeable hop bitterness" ;
-         :maxABV 5.5 ;
-         :minABV 3 ;
+mead:Pilsner rdf:type owl:NamedIndividual ,
+                  mead:Lager ;
+         mead:hasIngredient mead:Pilsner_Malt ,
+                        mead:Saaz ;
+         mead:originatesFrom mead:Czech_Republic ;
+         mead:colour "Pale straw to gold" ;
+         mead:flavour "Crisp, dry, noticeable hop bitterness" ;
+         mead:maxABV 5.5 ;
+         mead:minABV 3 ;
          rdfs:comment "A pale lager style that originated in the city of Pilsen. It became one of the most influential beer styles in the world." ;
          rdfs:label "Pilsner" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q152281" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pilsner_Malt
-:Pilsner_Malt rdf:type owl:NamedIndividual ,
-                       :Malt ;
+mead:Pilsner_Malt rdf:type owl:NamedIndividual ,
+                       mead:Malt ;
               rdfs:comment "A very lightly kilned malt associated with pale lagers and delicate beer styles. It is commonly used in continental European brewing." ;
               rdfs:label "Pilsner Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pinot_Meunier
-:Pinot_Meunier rdf:type owl:NamedIndividual ,
-                        :Grape ;
-               :isFarmedIn :France ;
+mead:Pinot_Meunier rdf:type owl:NamedIndividual ,
+                        mead:Grape ;
+               mead:isFarmedIn mead:France ;
                rdfs:comment "A black grape widely used in Champagne blends, valued for reliability and fruit character." ;
                rdfs:label "Pinot Meunier" ;
                rdfs:seeAlso "https://www.wikidata.org/wiki/Q947208" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pinot_Noir
-:Pinot_Noir rdf:type owl:NamedIndividual ,
-                     :Grape ;
-            :isFarmedIn :France ;
+mead:Pinot_Noir rdf:type owl:NamedIndividual ,
+                     mead:Grape ;
+            mead:isFarmedIn mead:France ;
             rdfs:comment "A historic Burgundian grape regarded as one of the world’s most important fine wine varieties." ;
             rdfs:label "Pinot Noir" ;
             rdfs:seeAlso "https://www.wikidata.org/wiki/Q223701" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Port
-:Port rdf:type owl:NamedIndividual ,
-               :DessertWine ;
-      :hasIngredient :Tempranillo ,
-                     :Tinta_Barroca ,
-                     :Tinta_Cao ,
-                     :Touriga_Franca ,
-                     :Touriga_Nacional ;
-      :originatesFrom :Portugal ;
-      :colour "Ruby to tawny" ;
-      :flavour "Sweet, rich, dried fruit, chocolate" ;
-      :maxABV 22 ;
-      :minABV 19 ;
+mead:Port rdf:type owl:NamedIndividual ,
+               mead:DessertWine ;
+      mead:hasIngredient mead:Tempranillo ,
+                     mead:Tinta_Barroca ,
+                     mead:Tinta_Cao ,
+                     mead:Touriga_Franca ,
+                     mead:Touriga_Nacional ;
+      mead:originatesFrom mead:Portugal ;
+      mead:colour "Ruby to tawny" ;
+      mead:flavour "Sweet, rich, dried fruit, chocolate" ;
+      mead:maxABV 22 ;
+      mead:minABV 19 ;
       rdfs:comment "A fortified wine from the Douro Valley in Portugal. It is commonly linked with after-dinner service and extended cellar aging." ;
       rdfs:label "Port" ;
       rdfs:seeAlso "https://www.wikidata.org/wiki/Q191034" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Porter
-:Porter rdf:type owl:NamedIndividual ,
-                 :Ale ;
-        :hasIngredient :Black_Malt ,
-                       :Chocolate_Malt ,
-                       :Crystal_Malt ,
-                       :East_Kent_Goldings ,
-                       :Fuggle ,
-                       :Northern_Brewer ,
-                       :Pale_Malt ;
-        :isSimilarTo :Stout ;
-        :originatesFrom :UK ;
-        :colour "Dark brown to black" ;
-        :flavour "Chocolate, coffee, roasted malt, mild sweetness" ;
-        :maxABV 6.5 ;
-        :minABV 4.5 ;
+mead:Porter rdf:type owl:NamedIndividual ,
+                 mead:Ale ;
+        mead:hasIngredient mead:Black_Malt ,
+                       mead:Chocolate_Malt ,
+                       mead:Crystal_Malt ,
+                       mead:East_Kent_Goldings ,
+                       mead:Fuggle ,
+                       mead:Northern_Brewer ,
+                       mead:Pale_Malt ;
+        mead:isSimilarTo mead:Stout ;
+        mead:originatesFrom mead:UK ;
+        mead:colour "Dark brown to black" ;
+        mead:flavour "Chocolate, coffee, roasted malt, mild sweetness" ;
+        mead:maxABV 6.5 ;
+        mead:minABV 4.5 ;
         rdfs:comment "A dark ale that developed in London and became popular among working-class drinkers. It is historically important as one of the classic urban beer styles." ;
         rdfs:label "Porter" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q954166" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Portugal
-:Portugal rdf:type owl:NamedIndividual ,
-                   :Country ;
+mead:Portugal rdf:type owl:NamedIndividual ,
+                   mead:Country ;
           rdfs:label "Portugal" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q45" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Primitivo
-:Primitivo rdf:type owl:NamedIndividual ,
-                    :Grape ;
-           :isFarmedIn :Croatia ;
+mead:Primitivo rdf:type owl:NamedIndividual ,
+                    mead:Grape ;
+           mead:isFarmedIn mead:Croatia ;
            rdfs:comment "A red grape historically linked to the Croatian variety Crljenak Kaštelanski and closely related to Zinfandel. It is widely spread in Italy, specifically in Puglia, which accounts for nearly all its production." ;
            rdfs:label "Primitivo"@it ,
                       "Zinfandel" ;
@@ -1332,287 +1332,287 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Primitivo_di_Manduria
-:Primitivo_di_Manduria rdf:type owl:NamedIndividual ,
-                                :RedWine ;
-                       :hasIngredient :Primitivo ;
-                       :originatesFrom :Italy ;
-                       :colour "Deep red" ;
-                       :flavour "Jammy, spicy, bold fruit" ;
-                       :maxABV 16 ;
-                       :minABV 13 ;
+mead:Primitivo_di_Manduria rdf:type owl:NamedIndividual ,
+                                mead:RedWine ;
+                       mead:hasIngredient mead:Primitivo ;
+                       mead:originatesFrom mead:Italy ;
+                       mead:colour "Deep red" ;
+                       mead:flavour "Jammy, spicy, bold fruit" ;
+                       mead:maxABV 16 ;
+                       mead:minABV 13 ;
                        rdfs:comment "A southern Italian wine from Puglia made from the Primitivo_di_Manduria grape. It is a regional DOC wine with strong local identity." ;
                        rdfs:label "Primitivo di Manduria" ;
                        rdfs:seeAlso "https://www.wikidata.org/wiki/Q3921815" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Prosecco
-:Prosecco rdf:type owl:NamedIndividual ,
-                   :SparklingWine ;
-          :hasIngredient :Glera ;
-          :originatesFrom :Italy ;
-          :colour "Pale straw" ;
-          :flavour "Floral, pear, light and fresh" ;
-          :maxABV 12.5 ;
-          :minABV 10.5 ;
+mead:Prosecco rdf:type owl:NamedIndividual ,
+                   mead:SparklingWine ;
+          mead:hasIngredient mead:Glera ;
+          mead:originatesFrom mead:Italy ;
+          mead:colour "Pale straw" ;
+          mead:flavour "Floral, pear, light and fresh" ;
+          mead:maxABV 12.5 ;
+          mead:minABV 10.5 ;
           rdfs:comment "An Italian sparkling wine associated with northeastern Italy. It is usually produced in a fresher, more accessible style than many traditional-method sparkling wines." ;
           rdfs:label "Prosecco" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q1069954" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pyment
-:Pyment rdf:type owl:NamedIndividual ,
-                 :Melomel ;
-        :hasIngredient :Any_Honey ,
-                       :Cabernet_Sauvignon ,
-                       :Chardonnay ,
-                       :Merlot ;
-        :isSimilarTo :Cabernet_Sauvignon_Wine ,
-                     :Merlot_Wine ;
-        :maxABV 14 ;
-        :minABV 8 ;
+mead:Pyment rdf:type owl:NamedIndividual ,
+                 mead:Melomel ;
+        mead:hasIngredient mead:Any_Honey ,
+                       mead:Cabernet_Sauvignon ,
+                       mead:Chardonnay ,
+                       mead:Merlot ;
+        mead:isSimilarTo mead:Cabernet_Sauvignon_Wine ,
+                     mead:Merlot_Wine ;
+        mead:maxABV 14 ;
+        mead:minABV 8 ;
         rdfs:comment "A melomel made with grapes or grape juice. It is closely related in character to wine-based fermentations." ;
         rdfs:label "Pyment" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Rhodomel
-:Rhodomel rdf:type owl:NamedIndividual ,
-                   :Metheglin ;
-          :hasIngredient :Any_Honey ,
-                         :Rose ;
-          :colour "Gold to amber" ;
-          :flavour "Floral, rose-forward, perfumed" ;
-          :maxABV 14 ;
-          :minABV 8 ;
+mead:Rhodomel rdf:type owl:NamedIndividual ,
+                   mead:Metheglin ;
+          mead:hasIngredient mead:Any_Honey ,
+                         mead:Rose ;
+          mead:colour "Gold to amber" ;
+          mead:flavour "Floral, rose-forward, perfumed" ;
+          mead:maxABV 14 ;
+          mead:minABV 8 ;
           rdfs:comment "A mead flavored with roses or rose petals. It belongs to the historical family of floral meads." ;
           rdfs:label "Rhodomel" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Rioja_Alta
-:Rioja_Alta rdf:type owl:NamedIndividual ,
-                     :RedWine ;
-            :hasIngredient :Garnacha ,
-                           :Graciano ,
-                           :Mazuelo ,
-                           :Tempranillo ;
-            :originatesFrom :Spain ;
-            :colour "Ruby red" ;
-            :flavour "Red berries, plum, and cherry" ;
-            :maxABV 15 ;
-            :minABV 13 ;
+mead:Rioja_Alta rdf:type owl:NamedIndividual ,
+                     mead:RedWine ;
+            mead:hasIngredient mead:Garnacha ,
+                           mead:Graciano ,
+                           mead:Mazuelo ,
+                           mead:Tempranillo ;
+            mead:originatesFrom mead:Spain ;
+            mead:colour "Ruby red" ;
+            mead:flavour "Red berries, plum, and cherry" ;
+            mead:maxABV 15 ;
+            mead:minABV 13 ;
             rdfs:comment "A major subregion of Rioja in northern Spain. It is known for wines associated with aging tradition and one of Spain’s most famous appellation systems." ;
             rdfs:label "Rioja Alta" ;
             rdfs:seeAlso "https://www.wikidata.org/wiki/Q3180906" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Rose
-:Rose rdf:type owl:NamedIndividual ,
-               :Botanical ;
+mead:Rose rdf:type owl:NamedIndividual ,
+               mead:Botanical ;
       rdfs:comment "A floral botanical used in syrups, infusions, meads, and aromatic beverages throughout many historical traditions." ;
       rdfs:label "Rose" ;
       rdfs:seeAlso "https://www.wikidata.org/wiki/Q34687" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Rosemary
-:Rosemary rdf:type owl:NamedIndividual ,
-                   :Botanical ;
+mead:Rosemary rdf:type owl:NamedIndividual ,
+                   mead:Botanical ;
           rdfs:comment "A woody Mediterranean herb commonly added to infused spirits, herbal wines, and savory botanical drinks." ;
           rdfs:label "Rosemary" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q102240169" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Saaz
-:Saaz rdf:type owl:NamedIndividual ,
-               :Hop ;
+mead:Saaz rdf:type owl:NamedIndividual ,
+               mead:Hop ;
       rdfs:comment "One of the classic noble hops, historically linked to Bohemian pilsner brewing and traditional European lagers." ;
       rdfs:label "Saaz" ;
       rdfs:seeAlso "https://www.wikidata.org/wiki/Q2623714" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Sack_Mead
-:Sack_Mead rdf:type owl:NamedIndividual ,
-                    :Mead ;
-           :hasIngredient :Any_Honey ;
-           :colour "Gold to amber" ;
-           :flavour "Similar profile to white wines, rich" ;
-           :maxABV 18 ;
-           :minABV 14 ;
+mead:Sack_Mead rdf:type owl:NamedIndividual ,
+                    mead:Mead ;
+           mead:hasIngredient mead:Any_Honey ;
+           mead:colour "Gold to amber" ;
+           mead:flavour "Similar profile to white wines, rich" ;
+           mead:maxABV 18 ;
+           mead:minABV 14 ;
            rdfs:comment "A rich, sweet mead made with a high honey content. The name reflects a stronger and more concentrated style." ;
            rdfs:label "Sack Mead" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Sangiovese
-:Sangiovese rdf:type owl:NamedIndividual ,
-                     :Grape ;
-            :isFarmedIn :Italy ;
+mead:Sangiovese rdf:type owl:NamedIndividual ,
+                     mead:Grape ;
+            mead:isFarmedIn mead:Italy ;
             rdfs:comment "Italy’s most widely planted red grape and the foundation of many Tuscan wines, including Chianti." ;
             rdfs:label "Sangiovese" ;
             rdfs:seeAlso "https://www.wikidata.org/wiki/Q509162" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Sangria
-:Sangria rdf:type owl:NamedIndividual ,
-                  :SpicedWine ;
-         :hasIngredient :Generic_Grape ,
-                        :Orange ,
-                        :Peach ,
-                        :Sugar ;
-         :originatesFrom :Spain ;
-         :colour "Red" ;
-         :flavour "Fruity, refreshing" ;
-         :maxABV 12 ;
-         :minABV 7 ;
+mead:Sangria rdf:type owl:NamedIndividual ,
+                  mead:SpicedWine ;
+         mead:hasIngredient mead:Generic_Grape ,
+                        mead:Orange ,
+                        mead:Peach ,
+                        mead:Sugar ;
+         mead:originatesFrom mead:Spain ;
+         mead:colour "Red" ;
+         mead:flavour "Fruity, refreshing" ;
+         mead:maxABV 12 ;
+         mead:minABV 7 ;
          rdfs:comment "A wine-based mixed drink made with fruit and other additions. It is strongly associated with social drinking and warm-weather serving." ;
          rdfs:label "Sangria" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q273296" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Sercial
-:Sercial rdf:type owl:NamedIndividual ,
-                  :Grape ;
-         :isFarmedIn :Portugal ;
+mead:Sercial rdf:type owl:NamedIndividual ,
+                  mead:Grape ;
+         mead:isFarmedIn mead:Portugal ;
          rdfs:comment "A white grape used in Madeira production, especially for drier wine styles." ;
          rdfs:label "Sercial" ;
          rdfs:seeAlso "https://www.wikidata.org/wiki/Q164081" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Sherry
-:Sherry rdf:type owl:NamedIndividual ,
-                 :DessertWine ;
-        :hasIngredient :Moscato ,
-                       :Palomino_Fino ,
-                       :Pedro_Ximenez ;
-        :originatesFrom :Spain ;
-        :colour "Pale to dark brown" ;
-        :flavour "Ranges from dry/nutty to sweet/raisin-like" ;
-        :maxABV 22 ;
-        :minABV 15 ;
+mead:Sherry rdf:type owl:NamedIndividual ,
+                 mead:DessertWine ;
+        mead:hasIngredient mead:Moscato ,
+                       mead:Palomino_Fino ,
+                       mead:Pedro_Ximenez ;
+        mead:originatesFrom mead:Spain ;
+        mead:colour "Pale to dark brown" ;
+        mead:flavour "Ranges from dry/nutty to sweet/raisin-like" ;
+        mead:maxABV 22 ;
+        mead:minABV 15 ;
         rdfs:comment "A fortified wine from southern Spain, centered on the region of Jerez. It is known for a wide range of styles shaped by oxidative aging and biological aging." ;
         rdfs:label "Sherry" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q16398" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Spain
-:Spain rdf:type owl:NamedIndividual ,
-                :Country ;
+mead:Spain rdf:type owl:NamedIndividual ,
+                mead:Country ;
        rdfs:label "Spain" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q29" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Spalt
-:Spalt rdf:type owl:NamedIndividual ,
-                :Hop ;
+mead:Spalt rdf:type owl:NamedIndividual ,
+                mead:Hop ;
        rdfs:comment "A traditional German noble hop cultivated in the Spalt region and used primarily in lager brewing." ;
        rdfs:label "Spalt" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q2920714" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Star_Anise
-:Star_Anise rdf:type owl:NamedIndividual ,
-                     :Botanical ;
+mead:Star_Anise rdf:type owl:NamedIndividual ,
+                     mead:Botanical ;
             rdfs:comment "A star-shaped spice known for its licorice-like aroma, often used in liqueurs and spiced alcoholic preparations." ;
             rdfs:label "Star Anise" ;
             rdfs:seeAlso "https://www.wikidata.org/wiki/Q2878644" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Stout
-:Stout rdf:type owl:NamedIndividual ,
-                :Ale ;
-       :hasIngredient :Black_Malt ,
-                      :Chocolate_Malt ,
-                      :East_Kent_Goldings ,
-                      :Fuggle ,
-                      :Pale_Malt ;
-       :originatesFrom :UK ;
-       :colour "Opaque black" ;
-       :flavour "Roasted, coffee, bitter chocolate, sometimes creamy" ;
-       :maxABV 9 ;
-       :minABV 4 ;
+mead:Stout rdf:type owl:NamedIndividual ,
+                mead:Ale ;
+       mead:hasIngredient mead:Black_Malt ,
+                      mead:Chocolate_Malt ,
+                      mead:East_Kent_Goldings ,
+                      mead:Fuggle ,
+                      mead:Pale_Malt ;
+       mead:originatesFrom mead:UK ;
+       mead:colour "Opaque black" ;
+       mead:flavour "Roasted, coffee, bitter chocolate, sometimes creamy" ;
+       mead:maxABV 9 ;
+       mead:minABV 4 ;
        rdfs:comment "A strong dark beer that evolved from porter traditions. It is commonly associated with robust brewing character and many regional variations." ;
        rdfs:label "Stout" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q217825" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Strong_Pale_Ale
-:Strong_Pale_Ale rdf:type owl:NamedIndividual ,
-                          :Ale ;
-                 :hasIngredient :East_Kent_Goldings ,
-                                :Fuggle ,
-                                :Munich_Malt ,
-                                :Pale_Malt ;
-                 :originatesFrom :Belgium ;
-                 :colour "Gold to amber" ;
-                 :flavour "Balanced malt and hops, fruity or citrus esters" ;
-                 :maxABV 11 ;
-                 :minABV 5 ;
+mead:Strong_Pale_Ale rdf:type owl:NamedIndividual ,
+                          mead:Ale ;
+                 mead:hasIngredient mead:East_Kent_Goldings ,
+                                mead:Fuggle ,
+                                mead:Munich_Malt ,
+                                mead:Pale_Malt ;
+                 mead:originatesFrom mead:Belgium ;
+                 mead:colour "Gold to amber" ;
+                 mead:flavour "Balanced malt and hops, fruity or citrus esters" ;
+                 mead:maxABV 11 ;
+                 mead:minABV 5 ;
                  rdfs:comment "A stronger version of pale ale, brewed with a focus on higher strength while retaining pale-malt character. The term covers several related historical and modern interpretations." ;
                  rdfs:label "Strong Pale Ale" ;
                  rdfs:seeAlso "https://www.wikidata.org/wiki/Q2719638" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Sugar
-:Sugar rdf:type owl:NamedIndividual ,
-                :SugarSource ;
+mead:Sugar rdf:type owl:NamedIndividual ,
+                mead:SugarSource ;
        rdfs:comment "A fermentable carbohydrate commonly added to beverages to increase alcohol content, adjust sweetness, or support secondary fermentation." ;
        rdfs:label "Sugar" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q4027534" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Tempranillo
-:Tempranillo rdf:type owl:NamedIndividual ,
-                      :Grape ;
-             :isFarmedIn :Spain ;
+mead:Tempranillo rdf:type owl:NamedIndividual ,
+                      mead:Grape ;
+             mead:isFarmedIn mead:Spain ;
              rdfs:comment "Spain’s flagship red grape, central to Rioja and Ribera del Duero wines." ;
              rdfs:label "Tempranillo" ;
              rdfs:seeAlso "https://www.wikidata.org/wiki/Q519874" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Tettnang
-:Tettnang rdf:type owl:NamedIndividual ,
-                   :Hop ;
+mead:Tettnang rdf:type owl:NamedIndividual ,
+                   mead:Hop ;
           rdfs:comment "A noble hop from the Tettnang region near Lake Constance, commonly used in refined lager styles." ;
           rdfs:label "Tettnang" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q2283501" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Thyme
-:Thyme rdf:type owl:NamedIndividual ,
-                :Botanical ;
+mead:Thyme rdf:type owl:NamedIndividual ,
+                mead:Botanical ;
        rdfs:comment "A small aromatic herb traditionally used in herbal infusions and regional botanical beverages." ;
        rdfs:label "Thyme" ;
        rdfs:seeAlso "https://www.wikidata.org/wiki/Q148668" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Tinta_Barroca
-:Tinta_Barroca rdf:type owl:NamedIndividual ,
-                        :Grape ;
-               :isFarmedIn :Portugal ;
+mead:Tinta_Barroca rdf:type owl:NamedIndividual ,
+                        mead:Grape ;
+               mead:isFarmedIn mead:Portugal ;
                rdfs:comment "A Portuguese red grape commonly used in Port wine blends from the Douro Valley." ;
                rdfs:label "Tinta Barroca" ;
                rdfs:seeAlso "https://www.wikidata.org/wiki/Q861834" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Tinta_Cao
-:Tinta_Cao rdf:type owl:NamedIndividual ,
-                    :Grape ;
-           :isFarmedIn :Portugal ;
+mead:Tinta_Cao rdf:type owl:NamedIndividual ,
+                    mead:Grape ;
+           mead:isFarmedIn mead:Portugal ;
            rdfs:comment "A traditional Portuguese grape valued in Port production for structure and aging ability." ;
            rdfs:label "Tinto Cão" ;
            rdfs:seeAlso "https://www.wikidata.org/wiki/Q501534" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Tinta_Negra
-:Tinta_Negra rdf:type owl:NamedIndividual ,
-                      :Grape ;
-             :isFarmedIn :Portugal ;
+mead:Tinta_Negra rdf:type owl:NamedIndividual ,
+                      mead:Grape ;
+             mead:isFarmedIn mead:Portugal ;
              rdfs:comment "A versatile grape widely planted on Madeira and used across different Madeira wine styles." ;
              rdfs:label "Tinta Negra" ;
              rdfs:seeAlso "https://www.wikidata.org/wiki/Q2435939" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Touriga_Franca
-:Touriga_Franca rdf:type owl:NamedIndividual ,
-                         :Grape ;
-                :isFarmedIn :Portugal ;
+mead:Touriga_Franca rdf:type owl:NamedIndividual ,
+                         mead:Grape ;
+                mead:isFarmedIn mead:Portugal ;
                 rdfs:comment "A major Douro grape commonly used in Port blends for aroma and balance." ;
                 rdfs:label "Touriga Franca"@fr ,
                            "Touriga Francesa" ;
@@ -1620,127 +1620,127 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Touriga_Nacional
-:Touriga_Nacional rdf:type owl:NamedIndividual ,
-                           :Grape ;
-                  :isFarmedIn :Portugal ;
+mead:Touriga_Nacional rdf:type owl:NamedIndividual ,
+                           mead:Grape ;
+                  mead:isFarmedIn mead:Portugal ;
                   rdfs:comment "Portugal’s flagship red grape, highly regarded in both Port and dry wines." ;
                   rdfs:label "Touriga Nacional" ;
                   rdfs:seeAlso "https://www.wikidata.org/wiki/Q1503069" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Traditional_Mead
-:Traditional_Mead rdf:type owl:NamedIndividual ,
-                           :Mead ;
-                  :hasIngredient :Any_Honey ;
-                  :colour "Pale gold" ;
-                  :flavour "Honey-forward, floral" ;
-                  :maxABV 14 ;
-                  :minABV 8 ;
+mead:Traditional_Mead rdf:type owl:NamedIndividual ,
+                           mead:Mead ;
+                  mead:hasIngredient mead:Any_Honey ;
+                  mead:colour "Pale gold" ;
+                  mead:flavour "Honey-forward, floral" ;
+                  mead:maxABV 14 ;
+                  mead:minABV 8 ;
                   rdfs:comment "A mead made only from honey, water, and yeast, without fruit or spices. It is the base form from which many other mead styles develop." ;
                   rdfs:label "Traditional Mead" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Trepat
-:Trepat rdf:type owl:NamedIndividual ,
-                 :Grape ;
-        :isFarmedIn :Spain ;
+mead:Trepat rdf:type owl:NamedIndividual ,
+                 mead:Grape ;
+        mead:isFarmedIn mead:Spain ;
         rdfs:comment "A red grape from Catalonia traditionally used in rosé and sparkling wine production." ;
         rdfs:label "Trepat" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q660955" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#UK
-:UK rdf:type owl:NamedIndividual ,
-             :Country ;
+mead:UK rdf:type owl:NamedIndividual ,
+             mead:Country ;
     rdfs:label "United Kingdom" ;
     rdfs:seeAlso "https://www.wikidata.org/wiki/Q145" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Verdelho
-:Verdelho rdf:type owl:NamedIndividual ,
-                   :Grape ;
-          :isFarmedIn :Portugal ;
+mead:Verdelho rdf:type owl:NamedIndividual ,
+                   mead:Grape ;
+          mead:isFarmedIn mead:Portugal ;
           rdfs:comment "A white grape associated with Madeira and also cultivated in several warm-climate wine regions." ;
           rdfs:label "Verdelho" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q1540261" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Verdot
-:Verdot rdf:type owl:NamedIndividual ,
-                 :Grape ;
-        :isFarmedIn :France ;
+mead:Verdot rdf:type owl:NamedIndividual ,
+                 mead:Grape ;
+        mead:isFarmedIn mead:France ;
         rdfs:comment "Usually referring to Petit Verdot, a Bordeaux grape used in small quantities to add structure and color to blends." ;
         rdfs:label "Petit Verdot" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q637453" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Vienna_Malt
-:Vienna_Malt rdf:type owl:NamedIndividual ,
-                      :Malt ;
+mead:Vienna_Malt rdf:type owl:NamedIndividual ,
+                      mead:Malt ;
              rdfs:comment "A moderately kilned malt developed for Vienna-style lagers. It provides a balance between light base malts and darker, richer malts." ;
              rdfs:label "Vienna Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Weissbier
-:Weissbier rdf:type owl:NamedIndividual ,
-                    :Ale ;
-           :hasIngredient :Hallertau_Mittelfruh ,
-                          :Pilsner_Malt ,
-                          :Tettnang ,
-                          :Wheat_Malt ;
-           :originatesFrom :Germany ;
-           :colour "Pale straw to hazy gold" ;
-           :flavour "Banana, clove, bready wheat, low bitterness" ;
-           :maxABV 5.5 ;
-           :minABV 4.5 ;
+mead:Weissbier rdf:type owl:NamedIndividual ,
+                    mead:Ale ;
+           mead:hasIngredient mead:Hallertau_Mittelfruh ,
+                          mead:Pilsner_Malt ,
+                          mead:Tettnang ,
+                          mead:Wheat_Malt ;
+           mead:originatesFrom mead:Germany ;
+           mead:colour "Pale straw to hazy gold" ;
+           mead:flavour "Banana, clove, bready wheat, low bitterness" ;
+           mead:maxABV 5.5 ;
+           mead:minABV 4.5 ;
            rdfs:comment "A traditional wheat beer from Germany, especially Bavaria. It is typically brewed with a high proportion of wheat and is closely tied to classic Central European brewing." ;
            rdfs:label "Weissbier" ;
            rdfs:seeAlso "https://www.wikidata.org/wiki/Q13417568" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Welsh_Metheglin
-:Welsh_Metheglin rdf:type owl:NamedIndividual ,
-                          :Metheglin ;
-                 :hasIngredient :Any_Honey ,
-                                :Lavander ,
-                                :Rosemary ,
-                                :Thyme ;
-                 :originatesFrom :UK ;
-                 :colour "Depends on specific spice blend" ;
-                 :flavour "herbal, medicinal, spiced" ;
-                 :maxABV 14 ;
-                 :minABV 8 ;
+mead:Welsh_Metheglin rdf:type owl:NamedIndividual ,
+                          mead:Metheglin ;
+                 mead:hasIngredient mead:Any_Honey ,
+                                mead:Lavander ,
+                                mead:Rosemary ,
+                                mead:Thyme ;
+                 mead:originatesFrom mead:UK ;
+                 mead:colour "Depends on specific spice blend" ;
+                 mead:flavour "herbal, medicinal, spiced" ;
+                 mead:maxABV 14 ;
+                 mead:minABV 8 ;
                  rdfs:comment "traditional Welsh spiced mead associated with herbal or medicinal usage. The name reflects older folk practices and regional identity." ;
                  rdfs:label "Welsh Metheglin (Meddyglyn)" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Wheat_Malt
-:Wheat_Malt rdf:type owl:NamedIndividual ,
-                     :Malt ;
+mead:Wheat_Malt rdf:type owl:NamedIndividual ,
+                     mead:Malt ;
             rdfs:comment "Malt made from wheat rather than barley, commonly used to improve foam stability and texture. It is central to many wheat beer traditions." ;
             rdfs:label "Wheat Malt" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Willamette
-:Willamette rdf:type owl:NamedIndividual ,
-                     :Hop ;
+mead:Willamette rdf:type owl:NamedIndividual ,
+                     mead:Hop ;
             rdfs:comment "An American aroma hop derived from English Fuggle stock and widely used in balanced ale brewing." ;
             rdfs:label "Willamette" ;
             rdfs:seeAlso "https://www.wikidata.org/wiki/Q1963173" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Xarel_lo
-:Xarel_lo rdf:type owl:NamedIndividual ,
-                   :Grape ;
-          :isFarmedIn :Spain ;
+mead:Xarel_lo rdf:type owl:NamedIndividual ,
+                   mead:Grape ;
+          mead:isFarmedIn mead:Spain ;
           rdfs:comment "A key white grape in traditional Cava production, especially valued in Catalonia." ;
           rdfs:label "Xarel·lo" ;
           rdfs:seeAlso "https://www.wikidata.org/wiki/Q127174" .
 
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Yarrow
-:Yarrow rdf:type owl:NamedIndividual ,
-                 :Botanical ;
+mead:Yarrow rdf:type owl:NamedIndividual ,
+                 mead:Botanical ;
         rdfs:comment "A bitter aromatic herb historically used in gruit beers and traditional herbal fermentations before widespread hop usage." ;
         rdfs:label "Yarrow" ;
         rdfs:seeAlso "https://www.wikidata.org/wiki/Q25408" .
@@ -1751,32 +1751,32 @@ Depending on the type of fermentation it can either be an Ale or a Lager.""" ;
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Beer
-                :Cider
-                :Mead
-                :Sake
-                :Wine
+  owl:members ( mead:Beer
+                mead:Cider
+                mead:Mead
+                mead:Sake
+                mead:Wine
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :DessertWine
-                :RedWine
-                :SparklingWine
-                :SpicedWine
-                :WhiteWine
+  owl:members ( mead:DessertWine
+                mead:RedWine
+                mead:SparklingWine
+                mead:SpicedWine
+                mead:WhiteWine
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Fruit
-                :Honey
-                :Malt
-                :Rice
+  owl:members ( mead:Fruit
+                mead:Honey
+                mead:Malt
+                mead:Rice
               )
 ] .
 
 
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T1 mead:1 mead:03Z) https://github.com/owlcs/owlapi
