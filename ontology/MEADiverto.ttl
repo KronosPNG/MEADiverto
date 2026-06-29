@@ -69,6 +69,15 @@ mead:originatesFrom rdf:type owl:ObjectProperty ;
                 rdfs:range mead:Country .
 
 
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#hasColour
+mead:hasColour rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:AsymmetricProperty ;
+           rdfs:domain mead:Beer ;
+           rdfs:range mead:BeerColour ;
+           rdfs:label "has Colour" .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -343,9 +352,147 @@ mead:Wine rdf:type owl:Class ;
       rdfs:seeAlso "https://www.wikidata.org/wiki/Q282" .
 
 
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#BeerColour
+mead:BeerColour rdf:type owl:Class ;
+            rdfs:comment "Represents the colour category of a beer, used for colour-based classification via anonymous class expressions." ;
+            rdfs:label "Beer Colour" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#AmberBeer
+mead:AmberBeer rdf:type owl:Class ;
+           rdfs:subClassOf mead:Beer ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( mead:Beer
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty mead:hasColour ;
+                                                        owl:hasValue mead:Amber
+                                                      ]
+                                                    )
+                               ] ;
+           rdfs:comment "Beers characterised by an amber colour, typically resulting from the use of crystal or caramel malts." ;
+           rdfs:label "Amber Beer" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#BlackBeer
+mead:BlackBeer rdf:type owl:Class ;
+           rdfs:subClassOf mead:Beer ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( mead:Beer
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty mead:hasColour ;
+                                                        owl:hasValue mead:Black
+                                                      ]
+                                                    )
+                               ] ;
+           rdfs:comment "Beers characterised by an opaque black colour, produced through the use of heavily roasted malts." ;
+           rdfs:label "Black Beer" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#BrownBeer
+mead:BrownBeer rdf:type owl:Class ;
+           rdfs:subClassOf mead:Beer ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( mead:Beer
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty mead:hasColour ;
+                                                        owl:hasValue mead:Brown
+                                                      ]
+                                                    )
+                               ] ;
+           rdfs:comment "Beers characterised by a brown colour, often using chocolate or roasted malts in moderate quantities." ;
+           rdfs:label "Brown Beer" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#DarkBeer
+mead:DarkBeer rdf:type owl:Class ;
+          rdfs:subClassOf mead:Beer ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:intersectionOf ( mead:Beer
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty mead:hasColour ;
+                                                       owl:hasValue mead:Dark
+                                                     ]
+                                                   )
+                              ] ;
+          rdfs:comment "Beers characterised by a very dark brown to near-black colour, combining roasted and chocolate malts." ;
+          rdfs:label "Dark Beer" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#GoldenBeer
+mead:GoldenBeer rdf:type owl:Class ;
+            rdfs:subClassOf mead:Beer ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:intersectionOf ( mead:Beer
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty mead:hasColour ;
+                                                         owl:hasValue mead:Golden
+                                                       ]
+                                                     )
+                                ] ;
+            rdfs:comment "Beers characterised by a golden colour, brighter and deeper than pale but lighter than amber." ;
+            rdfs:label "Golden Beer" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#PaleBeer
+mead:PaleBeer rdf:type owl:Class ;
+          rdfs:subClassOf mead:Beer ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:intersectionOf ( mead:Beer
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty mead:hasColour ;
+                                                       owl:hasValue mead:Pale
+                                                     ]
+                                                   )
+                              ] ;
+          rdfs:comment "Beers characterised by a pale, straw, or blonde colour, typically using lightly kilned base malts." ;
+          rdfs:label "Pale Beer" .
+
+
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Amber
+mead:Amber rdf:type owl:NamedIndividual ,
+                mead:BeerColour ;
+       rdfs:comment "An amber colour category for beers, sitting between gold and brown on the colour spectrum." ;
+       rdfs:label "Amber" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Black
+mead:Black rdf:type owl:NamedIndividual ,
+                mead:BeerColour ;
+       rdfs:comment "A black colour category for beers with an opaque, very dark appearance." ;
+       rdfs:label "Black" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Brown
+mead:Brown rdf:type owl:NamedIndividual ,
+                mead:BeerColour ;
+       rdfs:comment "A brown colour category for beers, deeper than amber but not fully opaque." ;
+       rdfs:label "Brown" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Dark
+mead:Dark rdf:type owl:NamedIndividual ,
+               mead:BeerColour ;
+      rdfs:comment "A dark colour category for beers that are very dark brown, approaching black." ;
+      rdfs:label "Dark" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Golden
+mead:Golden rdf:type owl:NamedIndividual ,
+                 mead:BeerColour ;
+        rdfs:comment "A golden colour category for beers, richer and deeper than pale but lighter than amber." ;
+        rdfs:label "Golden" .
+
+
+###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Pale
+mead:Pale rdf:type owl:NamedIndividual ,
+               mead:BeerColour ;
+      rdfs:comment "A pale colour category for beers including blonde and straw tones, typical of lightly kilned malts." ;
+      rdfs:label "Pale" .
+
 
 ###  http://www.semanticweb.org/turco/ontologies/2026/4/MEADiverto#Aligote
 mead:Aligote rdf:type owl:NamedIndividual ,
@@ -372,6 +519,7 @@ mead:Barley_Wine rdf:type owl:NamedIndividual ,
                             mead:Fuggle ,
                             mead:Munich_Malt ,
                             mead:Pale_Malt ;
+             mead:hasColour mead:Amber ;
              mead:isSimilarTo mead:Braggot ;
              mead:originatesFrom mead:UK ;
              mead:colour "Amber to deep brown" ;
@@ -405,6 +553,7 @@ mead:Blonde_Ale rdf:type owl:NamedIndividual ,
                            mead:Chinook ,
                            mead:Pale_Malt ,
                            mead:Pilsner_Malt ;
+            mead:hasColour mead:Pale ;
             mead:originatesFrom mead:UK ;
             mead:colour "Pale gold" ;
             mead:flavour "Light, clean, slightly bready, mild fruitiness" ;
@@ -436,6 +585,7 @@ mead:Bock rdf:type owl:NamedIndividual ,
                      mead:Munich_Malt ,
                      mead:Pilsner_Malt ,
                      mead:Tettnang ;
+      mead:hasColour mead:Amber ;
       mead:originatesFrom mead:Germany ;
       mead:colour "Amber to dark brown" ;
       mead:flavour "Malty, toasty, slightly sweet" ;
@@ -490,6 +640,7 @@ mead:Brown_Ale rdf:type owl:NamedIndividual ,
                           mead:East_Kent_Goldings ,
                           mead:Fuggle ,
                           mead:Pale_Malt ;
+           mead:hasColour mead:Brown ;
            mead:originatesFrom mead:UK ;
            mead:colour "Amber to brown" ;
            mead:flavour "Nutty, caramel, chocolate hints, low bitterness" ;
@@ -758,6 +909,7 @@ mead:Dunkel rdf:type owl:NamedIndividual ,
                        mead:Munich_Malt ,
                        mead:Spalt ,
                        mead:Vienna_Malt ;
+        mead:hasColour mead:Brown ;
         mead:originatesFrom mead:Germany ;
         mead:colour "Dark amber to brown" ;
         mead:flavour "Bread crust, toast, mild chocolate" ;
@@ -912,6 +1064,7 @@ mead:Gruit rdf:type owl:NamedIndividual ,
                       mead:Pale_Malt ,
                       mead:Rosemary ,
                       mead:Yarrow ;
+       mead:hasColour mead:Amber ;
        mead:colour "Pale to brown" ;
        mead:flavour "Herbal, spicy, earthy, not as bitter as beers that use hops" ;
        mead:maxABV 6 ;
@@ -935,6 +1088,7 @@ mead:Helles rdf:type owl:NamedIndividual ,
         mead:hasIngredient mead:Hallertau_Mittelfruh ,
                        mead:Pilsner_Malt ,
                        mead:Tettnang ;
+        mead:hasColour mead:Pale ;
         mead:originatesFrom mead:Germany ;
         mead:colour "Pale gold" ;
         mead:flavour "Clean, soft malt sweetness, very mild hops" ;
@@ -987,6 +1141,7 @@ mead:India_Pale_Ale rdf:type owl:NamedIndividual ,
                                mead:Citra ,
                                mead:Crystal_Malt ,
                                mead:Pale_Malt ;
+                mead:hasColour mead:Golden ;
                 mead:originatesFrom mead:UK ;
                 mead:colour "Gold to amber" ;
                 mead:flavour "Bitter, citrus, pine, tropical fruit" ;
@@ -1240,6 +1395,7 @@ mead:Pilsner rdf:type owl:NamedIndividual ,
                   mead:Lager ;
          mead:hasIngredient mead:Pilsner_Malt ,
                         mead:Saaz ;
+         mead:hasColour mead:Pale ;
          mead:originatesFrom mead:Czech_Republic ;
          mead:colour "Pale straw to gold" ;
          mead:flavour "Crisp, dry, noticeable hop bitterness" ;
@@ -1303,6 +1459,7 @@ mead:Porter rdf:type owl:NamedIndividual ,
                        mead:Fuggle ,
                        mead:Northern_Brewer ,
                        mead:Pale_Malt ;
+        mead:hasColour mead:Dark ;
         mead:isSimilarTo mead:Stout ;
         mead:originatesFrom mead:UK ;
         mead:colour "Dark brown to black" ;
@@ -1522,6 +1679,7 @@ mead:Stout rdf:type owl:NamedIndividual ,
                       mead:East_Kent_Goldings ,
                       mead:Fuggle ,
                       mead:Pale_Malt ;
+       mead:hasColour mead:Black ;
        mead:originatesFrom mead:UK ;
        mead:colour "Opaque black" ;
        mead:flavour "Roasted, coffee, bitter chocolate, sometimes creamy" ;
@@ -1539,6 +1697,7 @@ mead:Strong_Pale_Ale rdf:type owl:NamedIndividual ,
                                 mead:Fuggle ,
                                 mead:Munich_Malt ,
                                 mead:Pale_Malt ;
+                 mead:hasColour mead:Golden ;
                  mead:originatesFrom mead:Belgium ;
                  mead:colour "Gold to amber" ;
                  mead:flavour "Balanced malt and hops, fruity or citrus esters" ;
@@ -1688,6 +1847,7 @@ mead:Weissbier rdf:type owl:NamedIndividual ,
                           mead:Pilsner_Malt ,
                           mead:Tettnang ,
                           mead:Wheat_Malt ;
+           mead:hasColour mead:Pale ;
            mead:originatesFrom mead:Germany ;
            mead:colour "Pale straw to hazy gold" ;
            mead:flavour "Banana, clove, bready wheat, low bitterness" ;
@@ -1776,6 +1936,28 @@ mead:Yarrow rdf:type owl:NamedIndividual ,
                 mead:Malt
                 mead:Rice
               )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( mead:AmberBeer
+                mead:BlackBeer
+                mead:BrownBeer
+                mead:DarkBeer
+                mead:GoldenBeer
+                mead:PaleBeer
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( mead:Amber
+                        mead:Black
+                        mead:Brown
+                        mead:Dark
+                        mead:Golden
+                        mead:Pale
+                      )
 ] .
 
 

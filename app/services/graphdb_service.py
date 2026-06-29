@@ -174,7 +174,7 @@ class GraphDBService:
                     
                     # Prioritize specific types - prefer shorter, more specific labels
                     # Also prefer types that match common semantic classifications
-                    priority_types = ["Hop", "Malt", "Country", "Fermented Alcoholic Beverage"]
+                    priority_types = ["Hop", "Malt", "Country", "Beer Colour", "Fermented Alcoholic Beverage"]
                     
                     group_key = "Other"
                     if semantic_types:
@@ -569,7 +569,7 @@ class GraphDBService:
         WHERE {
             ?class rdfs:label ?label .
             OPTIONAL { ?child rdfs:subClassOf ?class . }
-            FILTER(?label NOT IN ("Resource", "NamedIndividual", "Class", "Ingredient", "Thing"))
+            FILTER(?label NOT IN ("Resource", "NamedIndividual", "Class", "Ingredient", "Thing", "Beer Colour"))
             FILTER NOT EXISTS { ?class rdf:type rdf:Property }
         }
         GROUP BY ?class ?label
